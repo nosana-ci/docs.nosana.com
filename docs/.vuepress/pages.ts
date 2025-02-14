@@ -52,6 +52,24 @@ export default [
     children: ['sdk_start', 'hello_world', 'tiny_llama', 'jupyter'],
   },
   {
+    text: 'Tutorial',
+    icon: 'terminal',
+    prefix: '/tutorials/',
+    collapsible: false,
+    children: [
+
+      {
+        text: 'LLM',
+        prefix: '/tutorials/llm/',
+        collapsible: false,
+        children: [
+          'deepseek.md',
+        ],
+      }
+
+    ],
+  },
+  {
     text: 'Protocols',
     icon: 'cubes',
     prefix: '/protocols/',
