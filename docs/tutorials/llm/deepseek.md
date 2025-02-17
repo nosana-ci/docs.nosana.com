@@ -13,7 +13,7 @@
 
 ## Introduction
 
-A high-throughput and memory-efficient inference engine for running DeepSeek's R1-Qwen-1.5B model using vLLM. This template provides an OpenAI-compatible API server for the R1-Qwen-1.5B model, optimized for performance using vLLM. This model is based on Qwen2.5-Math-1.5B and fine-tuned with DeepSeek-R1 samples, offering efficient performance for lightweight deployments.
+A high-throughput and memory-efficient inference engine for running DeepSeek R1-Qwen-1.5B model using vLLM. This template provides an OpenAI-compatible API server for the R1-Qwen-1.5B model, optimized for performance using vLLM. This model is based on Qwen2.5-Math-1.5B and fine-tuned with DeepSeek-R1 samples, offering efficient performance for lightweight deployments.
 
 The advantage of using Nosana with DeepSeek R1 is that it simplifies the deployment process, allowing you to focus on model development and optimization.
 
@@ -77,9 +77,9 @@ curl https://<nosana-job-id>.node.k8s.prd.nos.ci/v1/chat/completions \
 
 - [Node.JS](https://nodejs.org/en/download/)
 - [Nosana CLI](https://docs.nosana.com/getting-started/installation)
-- [Docker](https://docs.docker.com/get-docker/)
-- [Postman](https://www.postman.com/downloads/)
-- [curl](https://curl.se/)
+- [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/getting-started/installation)
+- [Postman (Optional)](https://www.postman.com/downloads/)
+- [curl (Optional)](https://curl.se/)
 - [Python](https://www.python.org/downloads/)
 
 ## Setup and Preparation
@@ -92,40 +92,25 @@ This is a standard Nosana Job Specification. With this you can define how a Nosa
 The most important parameters of the job specification are:
 
 - `image`: The Docker image to use for the job.
+- `entrypoint`: The entrypoint for the container.
 - `cmd`: The command to run inside the container.
 - `gpu`: Whether the job requires a GPU.
 - `expose`: The port to expose for the service.
 
-```json
-{
-  "version": "0.1",
-  "type": "container",
-  "meta": {
-    "trigger": "dashboard"
-  },
-  "ops": [
-    {
-      "type": "container/run",
-      "id": "vllm",
-      "args": {
-        "entrypoint": [],
-        "cmd": [
-          "/bin/sh",
-          "-c",
-          "python3",
-          "-m vllm.entrypoints.openai.api_server",
-          "--model deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
-          "--served-model-name R1-Qwen-1.5B",
-          "--port 9000",
-          "--max-model-len 130000"
-        ],
-        "image": "docker.io/vllm/vllm-openai:latest",
-        "gpu": true,
-        "expose": 9000
-      }
-    }
-  ]
-}
+@[code json](./deepseek.json)
+
+To read more about the Job Specification, go to [Nosana Job Specification Section](../../inference/job_schema.md).
+
+## Testing Locally
+
+### Start up Docker or Podman
+
+First we need to start up Docker or Podman, this will allow us to run the model locally.
+
+```bash
+
+```
+
 ```
 
 ## Containerization
@@ -139,3 +124,4 @@ The most important parameters of the job specification are:
 ## Retrieving and Reviewing the Results
 
 ## Wrap Up
+```
