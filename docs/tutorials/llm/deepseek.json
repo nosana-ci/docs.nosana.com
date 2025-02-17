@@ -2,15 +2,14 @@
   "version": "0.1",
   "type": "container",
   "meta": {
-    "trigger": "dashboard"
+    "trigger": "cli"
   },
   "ops": [
     {
       "type": "container/run",
-      "id": "vllm",
+      "id": "deepseek-r1-qwen-1.5b",
       "args": {
-        "entrypoint": [],
-        "cmd": [
+        "entrypoint": [
           "/bin/sh",
           "-c",
           "python3",
