@@ -63,6 +63,16 @@ Service will be exposed at https://<nosana-job-id>.node.k8s.prd.nos.ci
 Now you can interact with the deployed model using the provided Service URL.
 Use curl, Postman, or any other HTTP client to send requests to the model and receive responses.
 
+::: info
+Remember to change the `<nosana-job-id>` with the actual job ID.
+:::
+
+#### curl
+
+Using curl, we can easily get a response back. Copy and paste this in your terminal.
+
+::: details curl
+
 ```bash
 curl https://<nosana-job-id>.node.k8s.prd.nos.ci/v1/chat/completions \
   -H "Content-Type: application/json" \
@@ -72,6 +82,43 @@ curl https://<nosana-job-id>.node.k8s.prd.nos.ci/v1/chat/completions \
      "temperature": 0.7
    }'
 ```
+:::
+
+#### Postman
+
+#### OpenAI Python client
+
+You can use the OpenAI Python Client to connect to the endpoint and get started building.
+
+::: details
+@[code json](./openai.py)
+:::
+
+#### Open WebUI
+
+Using the Open WebUI, you can interact with the model using a user-friendly interface.
+Remember to change the `<nosana-job-id>` with the actual job ID.
+
+::: Open WebUI
+
+Start the WebUI locally.
+
+```sh
+docker run -d \
+  -p 3000:8080 \
+  -e OLLAMA_BASE_URL=https://<nosana-job-id>.node.k8s.prd.nos.ci/v1 \
+  -v open-webui:/app/backend/data \
+  --name open-webui \
+  --restart always \
+  ghcr.io/open-webui/open-webui:main
+```
+
+The service will be available at [http://localhost:8080](http://localhost:8080).
+
+Use the [Starting with Ollama Guide](https://docs.openwebui.com/getting-started/quick-start/starting-with-ollama/) to add your Nosana Service URL DeepSeek endpoint to the Open WebUI.
+
+
+:::
 
 ## Pre-requisites
 
@@ -92,8 +139,8 @@ This is a standard Nosana Job Specification. With this you can define how a Nosa
 The most important parameters of the job specification are:
 
 - `image`: The Docker image to use for the job.
-- `entrypoint`: The entrypoint for the container.
-- `cmd`: The command to run inside the container.
+- `entrypoint`: The entrypoint for the container, this is the first shell command to run.
+- `cmd`: The command to run inside the container, this can be used to specify any parameters such as flags.
 - `gpu`: Whether the job requires a GPU.
 - `expose`: The port to expose for the service.
 
@@ -103,15 +150,10 @@ To read more about the Job Specification, go to [Nosana Job Specification Sectio
 
 ## Testing Locally
 
-### Start up Docker or Podman
-
-First we need to start up Docker or Podman, this will allow us to run the model locally.
-
-```bash
-
-```
-
-```
+TODO: Is it even possible to start a session with no GPU?
+Will need to check with the dev team on this.
+This is useful, because at least then, it will allow devs to prototype their models locally before deploying them.
+Otherwise, we will need to do some kind of test / dev environment where they can prototype their deployments.
 
 ## Containerization
 
@@ -124,4 +166,7 @@ First we need to start up Docker or Podman, this will allow us to run the model 
 ## Retrieving and Reviewing the Results
 
 ## Wrap Up
+
+```
+
 ```
