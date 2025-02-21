@@ -4,6 +4,7 @@ const openai = new OpenAI({
 });
 
 const completion = await openai.chat.completions.create({
+  // TODO: Change model to qwen model
   model: "gpt-4o",
   messages: [
     { role: "developer", content: "You are a helpful assistant." },

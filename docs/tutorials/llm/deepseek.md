@@ -141,6 +141,8 @@ Use the [Starting with Ollama Guide](https://docs.openwebui.com/getting-started/
 
 ## Pre-requisites
 
+TODO: Update the pre-requisites to make sure that the optionality of the tools is clear.
+
 - [Node.JS](https://nodejs.org/en/download/)
 - [Nosana CLI](https://docs.nosana.com/getting-started/installation)
 - [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/getting-started/installation)

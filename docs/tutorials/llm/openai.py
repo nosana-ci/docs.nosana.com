@@ -10,6 +10,8 @@ client = OpenAI(
 # print(model_list)
 
 chat_completion = client.chat.completions.create(
+        
+    # TODO: change the model to the Qwen model
     model="meta-llama/Llama-3.2-1B-Instruct",
     messages=[
         {
