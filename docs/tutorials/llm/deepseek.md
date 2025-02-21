@@ -60,55 +60,75 @@ Service will be exposed at https://<nosana-job-id>.node.k8s.prd.nos.ci
 
 ### Interacting with the Model
 
-Now you can interact with the deployed model using the provided Service URL.
-Use curl, Postman, or any other HTTP client to send requests to the model and receive responses.
-
+Now you can interact with the deployed model using the provided Service URL. Use curl, Postman, or any other HTTP client to send requests to the model and receive responses.
 ::: info
-Remember to change the `<nosana-job-id>` with the actual job ID.
+Please note that the following examples need to be adjusted to match the actual job ID. Remember to change the `<nosana-job-id>` with the actual job ID.
 :::
 
 #### curl
 
-Using curl, we can easily get a response back. Copy and paste this in your terminal.
-
 ::: details curl
+Using curl, we can easily get a response back. Copy and paste this in your terminal.
 
 ```bash
 curl https://<nosana-job-id>.node.k8s.prd.nos.ci/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
-     "model": "R1-Qwen-7B",
+     "model": "R1-Qwen-1.5B",
      "messages": [{"role": "user", "content": "Tell me something about Nosana."}],
      "temperature": 0.7
    }'
 ```
+
 :::
 
-#### Postman
-
-#### OpenAI Python client
-
-You can use the OpenAI Python Client to connect to the endpoint and get started building.
+#### [OpenAI Python Client](https://github.com/openai/openai-python)
 
 ::: details
-@[code json](./openai.py)
+You can use the OpenAI Python Client to connect to the endpoint and get started building.
+
+First install the OpenAI Python Client.
+
+```bash
+pip install openai
+```
+
+Then you can use the following Python code to interact with the model.
+
+@[code python](./openai.py)
 :::
 
-#### Open WebUI
+#### [OpenAI Node.JS Client](https://github.com/openai/openai-node)
 
+::: details
+You can also use the OpenAI Node.js Client to connect to the endpoint and get started building.
+
+First install the OpenAI Node.js Client.
+
+```bash
+npm i -g openai
+```
+
+Then you can use the following TypeScript code to interact with the model.
+
+@[code ts](./openai.ts)
+:::
+
+#### [Open WebUI](https://github.com/open-webui/open-webui)
+
+::: details
 Using the Open WebUI, you can interact with the model using a user-friendly interface.
 Remember to change the `<nosana-job-id>` with the actual job ID.
 
-::: Open WebUI
+![Open WebUI](./Open_WebUI_qwen_r1.png)
 
 Start the WebUI locally.
 
 ```sh
 docker run -d \
-  -p 3000:8080 \
-  -e OLLAMA_BASE_URL=https://<nosana-job-id>.node.k8s.prd.nos.ci/v1 \
+  -p 8080:8080 \
+  -e OPENAI_API_BASE_URL=https://<nosana-job-id>.node.k8s.prd.nos.ci/v1 \
   -v open-webui:/app/backend/data \
-  --name open-webui \
   --restart always \
   ghcr.io/open-webui/open-webui:main
 ```
@@ -116,7 +136,6 @@ docker run -d \
 The service will be available at [http://localhost:8080](http://localhost:8080).
 
 Use the [Starting with Ollama Guide](https://docs.openwebui.com/getting-started/quick-start/starting-with-ollama/) to add your Nosana Service URL DeepSeek endpoint to the Open WebUI.
-
 
 :::
 
