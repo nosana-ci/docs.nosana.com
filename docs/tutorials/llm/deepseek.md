@@ -1,3 +1,6 @@
+---
+title: DeepSeek-R1
+---
 # DeepSeek R1
 
 <iframe
@@ -23,7 +26,7 @@ Can't wait to get started? Here's a quick guide to deploying the DeepSeek R1 mod
 
 ### Using the Nosana Dashboard
 
-For complete beginners, the easiest way to deploy the DeepSeek R1 model is through the Nosana Dashboard. The Dashboard provides a user-friendly interface that guides you through the deployment process step by step.
+For complete beginners, the easiest way to deploy the DeepSeek R1 model is through the Nosana Dashboard. The Dashboard provides a user-friendly interface that will guide you through the deployment process step by step.
 
 **Deploy this model now with [Nosana Dashboard](https://dashboard.nosana.com/jobs/create?templateId=deepseek-r1-qwen-1.5b)**
 
@@ -48,8 +51,7 @@ npx @nosana/cli job post \
   --verbose
 ```
 
-This will deploy the DeepSeek R1 model on the Nosana network using the specified job definition file.
-You will see some output indicating the status of the deployment process, and once the job is successfully deployed, you can start using the model right away.
+This will deploy the DeepSeek R1 model on the Nosana network using the specified job definition file. You will see some output indicating the status of the deployment process, and once the job is successfully deployed, you can start using the model right away.
 
 The model will be available for use at the Service URL provided in the output.
 Which has the following format:
@@ -61,6 +63,7 @@ Service will be exposed at https://<nosana-job-id>.node.k8s.prd.nos.ci
 ### Interacting with the Model
 
 Now you can interact with the deployed model using the provided Service URL. Use curl, Postman, or any other HTTP client to send requests to the model and receive responses.
+
 ::: info
 Please note that the following examples need to be adjusted to match the actual job ID. Remember to change the `<nosana-job-id>` with the actual job ID.
 :::
@@ -141,10 +144,8 @@ Use the [Starting with Ollama Guide](https://docs.openwebui.com/getting-started/
 
 ## Pre-requisites
 
-TODO: Update the pre-requisites to make sure that the optionality of the tools is clear.
-
 - [Node.JS](https://nodejs.org/en/download/)
-- [Nosana CLI](https://docs.nosana.com/getting-started/installation)
+- [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli)
 - [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/getting-started/installation)
 - [Postman (Optional)](https://www.postman.com/downloads/)
 - [curl (Optional)](https://curl.se/)
@@ -178,7 +179,41 @@ Otherwise, we will need to do some kind of test / dev environment where they can
 
 ## Containerization
 
+To build your own Docker container, create a `Dockerfile`, which contains instructions on how to the image will be built, and what extra requirements will be needed.
+
+@[code docker](./Dockerfile)
+
+Here we are using the `vllm/vllm-openai` base image. Then we install [Open WebUI](https://github.com/open-webui/open-webui), a user friendly AI interface. Then we download the `DeepSeek-R1-Distill-Qwen-1.5B` model and run it via [vLLM](https://github.com/vllm-project/vllm), a high-throughput and memory-efficient inference and serving engine for LLMs.
+
+### Build the Container
+
+The next step is to build the container, we do this by running:
+
+```bash
+docker build -t <hub-user>/<repo-name>:<tag> .
+```
+Make sure you have a [ Dockerhub account ](https://hub.docker.com/), and use your username in `<hub-user>`. For the `<repo-name>` use anything you'd like. The `<tag>` is optional.
+
+### Publish the Docker container
+
+Next we need to upload the Docker container to the Dockerhub Registry. Do this by running:
+
+```bash
+docker push <hub-user>/<repo-name>:<tag>
+```
+
+Now you should be able to navigate to [`https://hub.docker.com/r/<hub-user><repo-name>`](https://hub.docker.com).
+
+Now we can move on to deploying our application to Nosana.
+
 ## Deployment
+
+<ClientOnly>
+  <AsciinemaCast
+    src="https://asciinema.org/a/bJMOlPe5F4mFLY0Rl6fiJSOp3.js"
+    id="asciicast-bJMOlPe5F4mFLY0Rl6fiJSOp3"
+  />
+</ClientOnly>
 
 ## Managing the Deployment
 
