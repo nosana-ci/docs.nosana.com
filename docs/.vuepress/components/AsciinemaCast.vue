@@ -13,22 +13,22 @@ export default {
       type: String,
       required: true,
     },
-    // async: {
-    //   type: boolean,
-    //   required: false,
-    // },
-    // speed: {
-    //   type: number,
-    //   required: false,
-    // },
-    // idleTimeLimit: {
-    //   type: number,
-    //   required: false,
-    // },
-    // preload: {
-    //   type: boolean,
-    //   required: false
-    // }
+    async: {
+      type: String,
+      required: false,
+    },
+    speed: {
+      type: String,
+      required: false,
+    },
+    idleTimeLimit: {
+      type: String,
+      required: false,
+    },
+    preload: {
+      type: String,
+      required: false
+    }
   },
   mounted() {
     // Dynamically create the <script> so Vue doesn't complain
@@ -36,10 +36,10 @@ export default {
     const script = document.createElement('script')
     script.src = this.src
     script.id = this.id
-    // script.async = true
-    // script.speed = 2
-    // script.idleTimeLimit = 1
-    // script.idleTimeLimit = false
+    script.async = true
+    script.speed = 2
+    script.idleTimeLimit = 1
+    script.preload = false
     this.$refs.container.appendChild(script)
 
   },
