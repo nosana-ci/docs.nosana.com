@@ -27,6 +27,7 @@
     "@vuepress/client": "2.0.0-rc.0",
     "@vuepress/plugin-docsearch": "2.0.0-rc.0",
     "@vuepress/plugin-register-components": "^2.0.0-rc.0",
+    "asciinema-player": "^3.9.0",
     "chart.js": "4.4.1",
     "echarts": "5.4.3",
     "flowchart.ts": "3.0.0",
