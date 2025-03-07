@@ -208,12 +208,12 @@ Now we can move on to deploying our application to Nosana.
 
 ## Deployment
 
-<ClientOnly>
-  <AsciinemaCast
-    src="https://asciinema.org/a/bJMOlPe5F4mFLY0Rl6fiJSOp3.js"
-    id="asciicast-bJMOlPe5F4mFLY0Rl6fiJSOp3"
-  />
-</ClientOnly>
+<AsciinemaCast 
+  src="/cast/nos_address.cast" 
+  speed=2
+  idle-time-limit=1
+  startAt=2
+/>
 
 ## Managing the Deployment
 
