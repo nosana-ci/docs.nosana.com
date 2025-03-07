@@ -127,3 +127,7 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+@import url('https://cdn.jsdelivr.net/npm/asciinema-player@3.9.0/dist/bundle/asciinema-player.css');
+</style>
