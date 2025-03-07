@@ -1,5 +1,5 @@
-{"version":2,"width":92,"height":29,"timestamp":1741294726,"env":{"SHELL":"/bin/bash","TERM":"xterm-ghostty"},"theme":{"fg":"#ffffff","bg":"#282c34","palette":"#1d1f21:#cc6666:#b5bd68:#f0c674:#81a2be:#b294bb:#8abeb7:#c5c8c6:#666666:#d54e53:#b9ca4a:#e7c547:#7aa6da:#c397d8:#70c0b1:#eaeaea"}}
-[0.315575, "o", "\u001b[?2004h\u001b]0;djmbritt@pop-os: ~/Desktop\u0007djmbritt@pop-os:~/Desktop$ "]
+{"version":2,"width":80,"height":20,"timestamp":1741294726,"env":{"SHELL":"/bin/bash","TERM":"xterm-ghostty"},"theme":{"fg":"#ffffff","bg":"#282c34","palette":"#1d1f21:#cc6666:#b5bd68:#f0c674:#81a2be:#b294bb:#8abeb7:#c5c8c6:#666666:#d54e53:#b9ca4a:#e7c547:#7aa6da:#c397d8:#70c0b1:#eaeaea"}}
+[2.315575, "o", "\u001b[?2004h\u001b]0;djmbritt@pop-os: ~/Desktop\u0007djmbritt@pop-os:~/Desktop$ "]
 [2.320811, "o", "n"]
 [2.480115, "o", "o"]
 [2.635658, "o", "s"]
