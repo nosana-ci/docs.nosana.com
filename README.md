@@ -17,7 +17,7 @@ The resulting `.cast` files are to be placed in the [public/cast/](./docs/.vuepr
 
 To reference the cast file and render it in a Markdown file, you will need to use `<Asciinema>` component.
 Note the usage of the parameters such as `src`, `speed`, `idle-time-limit`, `startAt`.
-For a full reference take a look at [AsciinemaCast.vue](./docs/.vuepress/components/AsciinemaCast.vue) and at [Asciinema_Docs/Options](https://docs.asciinema.org/manual/player/options/#startat).
+For a full reference take a look at [AsciinemaCast.vue](./docs/.vuepress/components/AsciinemaCast.vue).
 
 ```html
 <AsciinemaCast 
