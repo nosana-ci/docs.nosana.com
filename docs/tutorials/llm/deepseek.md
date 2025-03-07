@@ -6,8 +6,8 @@ title: DeepSeek-R1
 <iframe
   width="560"
   height="315"
-  src="https://www.youtube.com/embed/4c31VE60bII?si=UWZN1sAenS7PSqea"
-  title="YouTube video player"
+  src="https://www.youtube.com/embed/4c31VE60bII"
+  title="Nosana: DeepSeek-R1"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   referrerpolicy="strict-origin-when-cross-origin"
@@ -44,7 +44,7 @@ Deploy the DeepSeek R1 model using the following command:
 
 ```bash
 npx @nosana/cli job post \
-  --url https://github.com/nosana-ci/pipeline-templates/raw/refs/heads/main/templates/Deepseek-R1-Qwen-7B/job-definition.json \
+  --url https://template.nosana.com/Deepseek-R1-Qwen-1.5B/job-definition.json \
   --market nvidia-4090 \
   --timeout 60 \
   --wait \
