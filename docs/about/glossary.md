@@ -23,4 +23,5 @@
 - **Hassle-Free Management**: Nosana delivers large quantities of GPUs without the complexities of infrastructure management.
 - **Secure and On-Demand Access**: Tap into a global network of the latest GPUs, including hard-to-find models.
 - **Pay-Per-Second Billing**: Flexible pricing that scales with your compute usage.
+- **Direct Access**: One to one communication with the GPU provider.
 - **Reduced Carbon Footprint**: Optimize idle resources to minimize environmental impact.
