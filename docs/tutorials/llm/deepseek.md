@@ -21,6 +21,15 @@ A high-throughput and memory-efficient inference engine for running DeepSeek R1-
 
 The advantage of using Nosana with DeepSeek R1 is that it simplifies the deployment process, allowing you to focus on model development and optimization.
 
+## Pre-requisites
+
+- [Node.JS](https://nodejs.org/en/download/)
+- [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli)
+- [curl (Optional)](https://curl.se/)
+- [Python (Optional)](https://www.python.org/downloads/)
+- [OpenAI-Node (Optional)](https://github.com/openai/openai-node?tab=readme-ov-file)
+- [OpenAI-Python (Optional)](https://github.com/openai/openai-python)
+
 ## Quick Start
 
 Can't wait to get started? Here's a quick guide to deploying the DeepSeek R1 model using the Nosana CLI.
@@ -54,12 +63,11 @@ npx @nosana/cli job post \
 
 This will deploy the DeepSeek R1 model on the Nosana network using the specified job definition file. You will see some output indicating the status of the deployment process, and once the job is successfully deployed, you can start using the model right away.
 
-The model will be available for use at the Service URL provided in the output.
-Which has the following format:
 
-```text
-Service will be exposed at https://<nosana-job-id>.node.k8s.prd.nos.ci
-```
+:::info
+The model will be availble for use at the Service URL provided in the output. Which has the following format:
+`https://<nosana-job-id>.node.k8s.prd.nos.ci`
+:::
 
 ### Interacting with the Model
 
@@ -69,10 +77,15 @@ Now you can interact with the deployed model using the provided Service URL. Use
 Please note that the following examples need to be adjusted to match the actual job ID. Remember to change the `<nosana-job-id>` with the actual job ID.
 :::
 
-#### curl
+#### [curl](https://curl.se/)
 
-::: details curl
+::: details
 Using curl, we can easily get a response back. Copy and paste this in your terminal.
+
+<AsciinemaCast
+  src="/cast/curl.cast"
+  autoplay=true
+/>
 
 ```bash
 curl https://<nosana-job-id>.node.k8s.prd.nos.ci/v1/chat/completions \
@@ -83,13 +96,18 @@ curl https://<nosana-job-id>.node.k8s.prd.nos.ci/v1/chat/completions \
      "temperature": 0.7
    }'
 ```
-
 :::
 
 #### [OpenAI Python Client](https://github.com/openai/openai-python)
 
 ::: details
 You can use the OpenAI Python Client to connect to the endpoint and get started building.
+
+
+<AsciinemaCast
+  src="/cast/openai_python.cast"
+  autoplay=true
+/>
 
 First install the OpenAI Python Client.
 
@@ -105,6 +123,12 @@ Then you can use the following Python code to interact with the model.
 #### [OpenAI Node.JS Client](https://github.com/openai/openai-node)
 
 ::: details
+
+<AsciinemaCast
+  src="/cast/openai_js.cast"
+  autoplay=true
+/>
+
 You can also use the OpenAI Node.js Client to connect to the endpoint and get started building.
 
 First install the OpenAI Node.js Client.
@@ -143,15 +167,6 @@ Use the [Starting with Ollama Guide](https://docs.openwebui.com/getting-started/
 
 :::
 
-## Pre-requisites
-
-- [Node.JS](https://nodejs.org/en/download/)
-- [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli)
-- [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/getting-started/installation)
-- [Postman (Optional)](https://www.postman.com/downloads/)
-- [curl (Optional)](https://curl.se/)
-- [Python](https://www.python.org/downloads/)
-
 ## Setup and Preparation
 
 As mentioned in the prerequisites, you need to have the necessary software installed on your system.
@@ -171,20 +186,13 @@ The most important parameters of the job specification are:
 
 To read more about the Job Specification, go to [Nosana Job Specification Section](../../inference/job_schema.md).
 
-## Testing Locally
-
-TODO: Is it even possible to start a session with no GPU?
-Will need to check with the dev team on this.
-This is useful, because at least then, it will allow devs to prototype their models locally before deploying them.
-Otherwise, we will need to do some kind of test / dev environment where they can prototype their deployments.
-
 ## Containerization
 
 To build your own Docker container, create a `Dockerfile`, which contains instructions on how to the image will be built, and what extra requirements will be needed.
 
 @[code docker](./Dockerfile)
 
-Here we are using the `vllm/vllm-openai` base image. Then we install [Open WebUI](https://github.com/open-webui/open-webui), a user friendly AI interface. Then we download the `DeepSeek-R1-Distill-Qwen-1.5B` model and run it via [vLLM](https://github.com/vllm-project/vllm), a high-throughput and memory-efficient inference and serving engine for LLMs.
+Here we are using the `vllm/vllm-openai` base image.  Then we install [Open WebUI](https://github.com/open-webui/open-webui), a user friendly AI interface. Then we download the `DeepSeek-R1-Distill-Qwen-1.5B` model and run it via [vLLM](https://github.com/vllm-project/vllm), a high-throughput and memory-efficient inference and serving engine for LLMs. The provided Docker image (`vllm/vllm-openai`) comes optimized for high-throughput inference with minimal overhead, making it ideal for serving models efficiently. Additionally, integrating Open WebUI enhances user interaction capabilities for immediate testing and usage.
 
 ### Build the Container
 
@@ -336,3 +344,6 @@ Now that you know the basics of how Nosana Deployments, you can refer back to th
 ## Conclusion
 
 Deploying the DeepSeek-R1-Qwen-1.5B model with Nosana significantly streamlines the process of setting up high-performance AI inference services. By leveraging Nosana's GPU infrastructure, developers can efficiently scale deployments while maintaining optimal performance and resource utilization. Whether using the user-friendly Nosana Dashboard or the powerful Nosana CLI, the integration simplifies complex tasks, allowing teams to focus more on model innovation and less on infrastructure management. Explore Nosana's intuitive tools today to accelerate your development workflows and seamlessly bring your AI projects to life.
+
+Now that you're familiar with deploying DeepSeek R1 on Nosana, you're ready to innovate quickly and efficiently. Visit the [ Nosana Dashboard ](https://dashboard.nosana.com) or explore more advanced CLI options to power your next AI project effortlessly.
+
