@@ -59,18 +59,24 @@ To get your wallet address, and top up your wallet:
 npx @nosana/cli address
 ```
 
+<AsciinemaCast
+  src="/cast/nos_wallet.cast"
+/>
+
 ### Deploying via CLI
 
-Deploy the DeepSeek R1 model using the following command:
+Deploy the DeepSeek R1 model using the following command, this will create a deployment on Nosana to run the [Deepseek-R1-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) model, for 60 minutes, on the [NVIDIA-3090 Market](https://dashboard.nosana.com/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ):
 
 ```bash
 npx @nosana/cli job post \
   --url https://template.nosana.com/Deepseek-R1-Qwen-1.5B/job-definition.json \
-  --market nvidia-4090 \
+  --market nvidia-3090 \
   --timeout 60 \
-  --wait \
-  --verbose
 ```
+
+<AsciinemaCast
+  src="/cast/nos_job_post.cast"
+/>
 
 This will deploy the DeepSeek R1 model on the Nosana network using the specified job definition file. You will see some output indicating the status of the deployment process, and once the job is successfully deployed, you can start using the model right away.
 
@@ -92,10 +98,6 @@ Please note that the following examples need to be adjusted to match the actual 
 ::: details
 Using curl, we can easily get a response back. Copy and paste this in your terminal.
 
-<AsciinemaCast
-  src="/cast/curl.cast"
-/>
-
 ```bash
 curl https://<nosana-job-id>.node.k8s.prd.nos.ci/v1/chat/completions \
   -H "Content-Type: application/json" \
@@ -105,17 +107,16 @@ curl https://<nosana-job-id>.node.k8s.prd.nos.ci/v1/chat/completions \
      "temperature": 0.7
    }'
 ```
+
+<AsciinemaCast
+  src="/cast/curl.cast"
+/>
 :::
 
 #### [OpenAI Python Client](https://github.com/openai/openai-python)
 
 ::: details
 You can use the OpenAI Python Client to connect to the endpoint and get started building.
-
-
-<AsciinemaCast
-  src="/cast/openai_python.cast"
-/>
 
 First install the OpenAI Python Client.
 
@@ -126,16 +127,15 @@ pip install openai
 Then you can use the following Python code to interact with the model.
 
 @[code python](./openai.py)
+
+<AsciinemaCast
+  src="/cast/openai_python.cast"
+/>
 :::
 
 #### [OpenAI Node.JS Client](https://github.com/openai/openai-node)
 
 ::: details
-
-<AsciinemaCast
-  src="/cast/openai_js.cast"
-/>
-
 You can also use the OpenAI Node.js Client to connect to the endpoint and get started building.
 
 First install the OpenAI Node.js Client.
@@ -147,6 +147,9 @@ npm i -g openai
 Then you can use the following TypeScript code to interact with the model.
 
 @[code ts](./openai.ts)
+<AsciinemaCast
+  src="/cast/openai_js.cast"
+/>
 :::
 
 #### [Open WebUI](https://github.com/open-webui/open-webui)
@@ -154,8 +157,6 @@ Then you can use the following TypeScript code to interact with the model.
 ::: details
 Using the Open WebUI, you can interact with the model using a user-friendly interface.
 Remember to change the `<nosana-job-id>` with the actual job ID.
-
-![Open WebUI](./Open_WebUI_qwen_r1.png)
 
 Start the WebUI locally.
 
@@ -172,6 +173,7 @@ The service will be available at [http://localhost:8080](http://localhost:8080).
 
 Use the [Starting with Ollama Guide](https://docs.openwebui.com/getting-started/quick-start/starting-with-ollama/) to add your Nosana Service URL DeepSeek endpoint to the Open WebUI.
 
+![Open WebUI](./Open_WebUI_qwen_r1.png)
 :::
 
 ### Troubleshooting Common Issues
@@ -206,36 +208,6 @@ The most important parameters of the job specification are:
 @[code json](./deepseek.json)
 
 To read more about the Job Specification, go to [Nosana Job Specification Section](../../inference/job_schema.md).
-
-<!-- ## Containerization -->
-<!---->
-<!-- To build your own Docker container, create a `Dockerfile`, which contains instructions on how to the image will be built, and what extra requirements will be needed. -->
-<!---->
-<!-- @[code docker](./Dockerfile) -->
-<!---->
-<!-- Here we are using the `vllm/vllm-openai` base image. Then we install [Open WebUI](https://github.com/open-webui/open-webui), a user friendly AI interface. Then we download the `DeepSeek-R1-Distill-Qwen-1.5B` model and run it via [vLLM](https://github.com/vllm-project/vllm), a high-throughput and memory-efficient inference and serving engine for LLMs. The provided Docker image (`vllm/vllm-openai`) comes optimized for high-throughput inference with minimal overhead, making it ideal for serving models efficiently. Additionally, integrating Open WebUI enhances user interaction capabilities for immediate testing and usage. -->
-<!---->
-<!-- ### Build the Container -->
-<!---->
-<!-- The next step is to build the container, we do this by running: -->
-<!---->
-<!-- ```bash -->
-<!-- docker build -t <hub-user>/<repo-name>:<tag> . -->
-<!-- ``` -->
-<!---->
-<!-- Make sure you have a [Dockerhub account](https://hub.docker.com/), and use your username in `<hub-user>`. For the `<repo-name>` use anything you'd like. The `<tag>` is optional. -->
-<!---->
-<!-- ### Publish the Docker container -->
-<!---->
-<!-- Next we need to upload the Docker container to the Dockerhub Registry. Do this by running: -->
-<!---->
-<!-- ```bash -->
-<!-- docker push <hub-user>/<repo-name>:<tag> -->
-<!-- ``` -->
-<!---->
-<!-- Now you should be able to navigate to [`https://hub.docker.com/r/<hub-user><repo-name>`](https://hub.docker.com). -->
-<!---->
-<!-- Now we can move on to deploying our application to Nosana. -->
 
 ## Deployments
 
