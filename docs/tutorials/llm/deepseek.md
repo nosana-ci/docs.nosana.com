@@ -15,7 +15,22 @@ title: DeepSeek-R1
   allowfullscreen>
 </iframe>
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Pre-requisites](#pre-requisites)
+- [Quick Start](#quick-start)
+  - [Nosana Dashboard](#using-the-nosana-dashboard)
+  - [Nosana CLI](#using-nosana-cli)
+- [Interacting with the Model](#interacting-with-the-model)
+- [Containerization](#containerization)
+- [Deployments](#deployments)
+- [Monitoring Deployments](#monitoring-deployments)
+- [Managing Deployments](#managing-deployments)
+- [Wrap Up & Next Steps](#wrap-up)
+
 ## Introduction
+
+This tutorial should help those that are curious on how to get started using [Nosana](https://nosana.com) by deploying a [Deepseek-R1-Qwen-1-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) model.
 
 A high-throughput and memory-efficient inference engine for running DeepSeek R1-Qwen-1.5B model using vLLM. This template provides an OpenAI-compatible API server for the R1-Qwen-1.5B model, optimized for performance using vLLM. This model is based on Qwen2.5-Math-1.5B and fine-tuned with DeepSeek-R1 samples, offering efficient performance for lightweight deployments.
 
@@ -23,8 +38,13 @@ The advantage of using Nosana with DeepSeek R1 is that it simplifies the deploym
 
 ## Pre-requisites
 
+### Required
+
 - [Node.JS](https://nodejs.org/en/download/)
 - [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli)
+
+### Optional
+
 - [curl (Optional)](https://curl.se/)
 - [Python (Optional)](https://www.python.org/downloads/)
 - [OpenAI-Node (Optional)](https://github.com/openai/openai-node?tab=readme-ov-file)
@@ -44,11 +64,15 @@ For complete beginners, the easiest way to deploy the DeepSeek R1 model is throu
 
 Assuming you have the [Nosana CLI](https://github.com/nosana-ci/nosana-cli) installed and you have topped up your wallet with [SOL](https://solana.com/) and [NOS](https://nosana.com/token).
 
+### Setting up Nosana CLI
+
 To get your wallet address, and top up your wallet:
 
 ```bash
 npx @nosana/cli address
 ```
+
+### Deploying via CLI
 
 Deploy the DeepSeek R1 model using the following command:
 
@@ -63,9 +87,8 @@ npx @nosana/cli job post \
 
 This will deploy the DeepSeek R1 model on the Nosana network using the specified job definition file. You will see some output indicating the status of the deployment process, and once the job is successfully deployed, you can start using the model right away.
 
-
 :::info
-The model will be availble for use at the Service URL provided in the output. Which has the following format:
+The model will be available for use at the Service URL provided in the output. Which has the following format:
 `https://<nosana-job-id>.node.k8s.prd.nos.ci`
 :::
 
@@ -167,6 +190,20 @@ Use the [Starting with Ollama Guide](https://docs.openwebui.com/getting-started/
 
 :::
 
+### Troubleshooting Common Issues
+
+**Deployment Fails:**
+- Ensure sufficient NOS/SOL tokens in your wallet, you will need a minimum of 0.05 SOL, and a minimum amount of NOS to pay for the Nosana deployment. On the [NVIDIA-3090 Market](https://dashboard.nosana.com/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ) it costs **$0.192/hour**. Make sure you have that amount in NOS.
+- Verify network connectivity.
+
+**API not responding:**
+- Check Service URL is correct (verify `<nosana-job-id>`).
+
+**CLI authentication issues:**
+- Confirm correct private key imported into Nosana Dashboard.
+
+If issues persist, contact Nosana support on [Discord](https://discord.gg/nosana).
+
 ## Setup and Preparation
 
 As mentioned in the prerequisites, you need to have the necessary software installed on your system.
@@ -186,35 +223,35 @@ The most important parameters of the job specification are:
 
 To read more about the Job Specification, go to [Nosana Job Specification Section](../../inference/job_schema.md).
 
-## Containerization
-
-To build your own Docker container, create a `Dockerfile`, which contains instructions on how to the image will be built, and what extra requirements will be needed.
-
-@[code docker](./Dockerfile)
-
-Here we are using the `vllm/vllm-openai` base image.  Then we install [Open WebUI](https://github.com/open-webui/open-webui), a user friendly AI interface. Then we download the `DeepSeek-R1-Distill-Qwen-1.5B` model and run it via [vLLM](https://github.com/vllm-project/vllm), a high-throughput and memory-efficient inference and serving engine for LLMs. The provided Docker image (`vllm/vllm-openai`) comes optimized for high-throughput inference with minimal overhead, making it ideal for serving models efficiently. Additionally, integrating Open WebUI enhances user interaction capabilities for immediate testing and usage.
-
-### Build the Container
-
-The next step is to build the container, we do this by running:
-
-```bash
-docker build -t <hub-user>/<repo-name>:<tag> .
-```
-
-Make sure you have a [Dockerhub account](https://hub.docker.com/), and use your username in `<hub-user>`. For the `<repo-name>` use anything you'd like. The `<tag>` is optional.
-
-### Publish the Docker container
-
-Next we need to upload the Docker container to the Dockerhub Registry. Do this by running:
-
-```bash
-docker push <hub-user>/<repo-name>:<tag>
-```
-
-Now you should be able to navigate to [`https://hub.docker.com/r/<hub-user><repo-name>`](https://hub.docker.com).
-
-Now we can move on to deploying our application to Nosana.
+<!-- ## Containerization -->
+<!---->
+<!-- To build your own Docker container, create a `Dockerfile`, which contains instructions on how to the image will be built, and what extra requirements will be needed. -->
+<!---->
+<!-- @[code docker](./Dockerfile) -->
+<!---->
+<!-- Here we are using the `vllm/vllm-openai` base image. Then we install [Open WebUI](https://github.com/open-webui/open-webui), a user friendly AI interface. Then we download the `DeepSeek-R1-Distill-Qwen-1.5B` model and run it via [vLLM](https://github.com/vllm-project/vllm), a high-throughput and memory-efficient inference and serving engine for LLMs. The provided Docker image (`vllm/vllm-openai`) comes optimized for high-throughput inference with minimal overhead, making it ideal for serving models efficiently. Additionally, integrating Open WebUI enhances user interaction capabilities for immediate testing and usage. -->
+<!---->
+<!-- ### Build the Container -->
+<!---->
+<!-- The next step is to build the container, we do this by running: -->
+<!---->
+<!-- ```bash -->
+<!-- docker build -t <hub-user>/<repo-name>:<tag> . -->
+<!-- ``` -->
+<!---->
+<!-- Make sure you have a [Dockerhub account](https://hub.docker.com/), and use your username in `<hub-user>`. For the `<repo-name>` use anything you'd like. The `<tag>` is optional. -->
+<!---->
+<!-- ### Publish the Docker container -->
+<!---->
+<!-- Next we need to upload the Docker container to the Dockerhub Registry. Do this by running: -->
+<!---->
+<!-- ```bash -->
+<!-- docker push <hub-user>/<repo-name>:<tag> -->
+<!-- ``` -->
+<!---->
+<!-- Now you should be able to navigate to [`https://hub.docker.com/r/<hub-user><repo-name>`](https://hub.docker.com). -->
+<!---->
+<!-- Now we can move on to deploying our application to Nosana. -->
 
 ## Deployments
 
@@ -321,7 +358,6 @@ npx @nosana/cli job stop <nosana-job-id>
   autoplay=true
 />
 
-
 ### Extending Deployment
 
 <!-- TODO: Fix this AsciinemaCast -->
@@ -341,9 +377,15 @@ npx @nosana/cli job extend FATtTRGnveSmaRZHpLissUMqWKAG1kMX8VYHQjg5Afqc --timeou
 
 Now that you know the basics of how Nosana Deployments, you can refer back to the [Interacting with the Model](#interacting-with-the-model) to read again how to query the model.
 
-## Conclusion
+### Conclusion
 
-Deploying the DeepSeek-R1-Qwen-1.5B model with Nosana significantly streamlines the process of setting up high-performance AI inference services. By leveraging Nosana's GPU infrastructure, developers can efficiently scale deployments while maintaining optimal performance and resource utilization. Whether using the user-friendly Nosana Dashboard or the powerful Nosana CLI, the integration simplifies complex tasks, allowing teams to focus more on model innovation and less on infrastructure management. Explore Nosana's intuitive tools today to accelerate your development workflows and seamlessly bring your AI projects to life.
+Deploying the DeepSeek-R1-Qwen-1.5B model with Nosana significantly streamlines the process of setting up high-performance AI inference services. By leveraging Nosana’s GPU infrastructure, developers can efficiently scale deployments while maintaining optimal performance and resource utilization. Whether using the user-friendly Nosana Dashboard or the powerful Nosana CLI, the integration simplifies complex tasks, allowing teams to focus more on model innovation and less on infrastructure management. Explore Nosana's intuitive tools today to accelerate your development workflows and seamlessly bring your AI projects to life.
 
-Now that you're familiar with deploying DeepSeek R1 on Nosana, you're ready to innovate quickly and efficiently. Visit the [ Nosana Dashboard ](https://dashboard.nosana.com) or explore more advanced CLI options to power your next AI project effortlessly.
+Now that you are familiar with deploying DeepSeek R1 on Nosana, you're ready to innovate quickly and efficiently. Visit the [ Nosana Dashboard ](https://dashboard.nosana.com) or explore more advanced CLI options to power your next AI project effortlessly.
 
+### Next Steps
+
+- [Explore deploying other models on Nosana.](https://dashboard.nosana.com/jobs/templates)
+- [Dive deeper into Nosana's documentation for advanced job customization.](https://docs.nosana.com)
+- [Join Nosana's community on Discord for support and feedback.](https://nosana.com/discord)
+- [Follow Nosana on X](https://nosana.com/x)
