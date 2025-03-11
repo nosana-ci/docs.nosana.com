@@ -57,16 +57,12 @@ export default [
     prefix: '/tutorials/',
     collapsible: false,
     children: [
-
       {
         text: 'LLM',
         prefix: '/tutorials/llm/',
         collapsible: false,
-        children: [
-          'deepseek.md',
-        ],
-      }
-
+        children: ['deepseek.md'],
+      },
     ],
   },
   {

@@ -15,8 +15,8 @@ export default defineUserConfig({
     registerComponentsPlugin({
       componentsDir: path.resolve(__dirname, '../components'),
       components: {
-        AsciinemaCast: path.resolve(__dirname, './components/AsciinemaCast.vue')
-      }
-    })
-  ]
+        AsciinemaCast: path.resolve(__dirname, './components/AsciinemaCast.vue'),
+      },
+    }),
+  ],
 });
