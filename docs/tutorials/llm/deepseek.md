@@ -15,19 +15,6 @@ title: DeepSeek-R1
   allowfullscreen>
 </iframe>
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Pre-requisites](#pre-requisites)
-- [Quick Start](#quick-start)
-  - [Nosana Dashboard](#using-the-nosana-dashboard)
-  - [Nosana CLI](#using-nosana-cli)
-- [Interacting with the Model](#interacting-with-the-model)
-- [Containerization](#containerization)
-- [Deployments](#deployments)
-- [Monitoring Deployments](#monitoring-deployments)
-- [Managing Deployments](#managing-deployments)
-- [Wrap Up & Next Steps](#wrap-up)
-
 ## Introduction
 
 This tutorial should help those that are curious on how to get started using [Nosana](https://nosana.com) by deploying a [Deepseek-R1-Qwen-1-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) model.
