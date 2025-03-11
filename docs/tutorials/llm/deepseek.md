@@ -32,10 +32,10 @@ The advantage of using Nosana with DeepSeek R1 is that it simplifies the deploym
 
 ### Optional
 
-- [curl (Optional)](https://curl.se/)
-- [Python (Optional)](https://www.python.org/downloads/)
-- [OpenAI-Node (Optional)](https://github.com/openai/openai-node?tab=readme-ov-file)
-- [OpenAI-Python (Optional)](https://github.com/openai/openai-python)
+- [curl](https://curl.se/)
+- [Python](https://www.python.org/downloads/)
+- [OpenAI-Node](https://github.com/openai/openai-node?tab=readme-ov-file)
+- [OpenAI-Python](https://github.com/openai/openai-python)
 
 ## Quick Start
 
