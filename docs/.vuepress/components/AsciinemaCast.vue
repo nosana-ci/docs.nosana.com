@@ -26,6 +26,18 @@ export default {
       type: Number,
       default: 8
     },
+// TODO: This doesn't seem to work properly
+    height: Number,
+    default: 80,
+    validator(value) {
+      return value > 0;
+    },
+// TODO: This doesn't seem to work properly
+    width: Number,
+    default: 20,
+    validator(value) {
+      return value > 0;
+    },
     speed: {
       type: Number,
       default: 1,
@@ -91,8 +103,8 @@ export default {
         },
         this.$refs.player,
         {
-          width: this.cols,
-          height: this.rows,
+          width: this.width,
+          height: this.height,
           loop: true,
           "font-size": this.fontSize,
           title: this.title,
