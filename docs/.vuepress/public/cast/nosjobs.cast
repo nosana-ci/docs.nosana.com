@@ -1,4 +1,4 @@
-{"version":4,"width":202,"height":56,"timestamp":1741463952,"env":{"TERM":"xterm-256color","SHELL":"/bin/bash"},"theme":{"fg":"#4c4f69","bg":"#eff1f5","palette":"#bcc0cc:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#5c5f77:#acb0be:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#6c6f85"}}
+{"version":4,"width":202,"height":24,"timestamp":1741463952,"env":{"TERM":"xterm-256color","SHELL":"/bin/bash"},"theme":{"fg":"#4c4f69","bg":"#eff1f5","palette":"#bcc0cc:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#5c5f77:#acb0be:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#6c6f85"}}
 [0.401617, "o", "\u001b[?2004h"]
 [0.401629, "o", "\u001b]0;djmbritt@pop-os: ~\u0007\u001b[01;32mdjmbritt@pop-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
 [2.57167, "o", "\u001b[7mnpx @nosana/cli job post \\\u001b[27m\r\n\r\u001b[7m  --url https://template.nosana.com/Deepseek-R1-Qwen-1.5B/job-definition.json \\\u001b[27m\r\n\r\u001b[7m  --market nvidia-3090 \\\u001b[27m\r\n"]

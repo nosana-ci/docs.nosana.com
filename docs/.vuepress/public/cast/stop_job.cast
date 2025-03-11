@@ -1,4 +1,4 @@
-{"version":2,"width":100,"height":20,"timestamp":1741712225,"env":{"SHELL":"/bin/bash","TERM":"xterm-256color"},"theme":{"fg":"#4c4f69","bg":"#eff1f5","palette":"#bcc0cc:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#5c5f77:#acb0be:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#6c6f85"}}
+{"version":2,"width":100,"height":24,"timestamp":1741712225,"env":{"SHELL":"/bin/bash","TERM":"xterm-256color"},"theme":{"fg":"#4c4f69","bg":"#eff1f5","palette":"#bcc0cc:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#5c5f77:#acb0be:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#6c6f85"}}
 [0.40056, "o", "\u001b[?2004h\u001b]0;djmbritt@pop-os: ~\u0007\u001b[01;32mdjmbritt@pop-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
 [1.693595, "o", "\u001b[7mnpx @nosana/cli job stop BV5uB5tgkj5hHBM36bf8yFvt7sae2QgyFL6dp9hvTNQX\u001b[27m\r\n\r"]
 [3.28355, "o", "\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[Cnpx @nosana/cli job stop BV5uB5tgkj5hHBM36bf8yFvt7sae2QgyFL6dp9hvTNQX\r\n\r\u001b[A"]
