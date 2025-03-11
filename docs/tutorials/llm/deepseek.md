@@ -1,6 +1,7 @@
 ---
 title: DeepSeek-R1
 ---
+
 # DeepSeek R1
 
 <iframe
@@ -192,7 +193,8 @@ The next step is to build the container, we do this by running:
 ```bash
 docker build -t <hub-user>/<repo-name>:<tag> .
 ```
-Make sure you have a [ Dockerhub account ](https://hub.docker.com/), and use your username in `<hub-user>`. For the `<repo-name>` use anything you'd like. The `<tag>` is optional.
+
+Make sure you have a [Dockerhub account](https://hub.docker.com/), and use your username in `<hub-user>`. For the `<repo-name>` use anything you'd like. The `<tag>` is optional.
 
 ### Publish the Docker container
 
@@ -206,23 +208,99 @@ Now you should be able to navigate to [`https://hub.docker.com/r/<hub-user><repo
 
 Now we can move on to deploying our application to Nosana.
 
-## Deployment
+## Deployments
 
-<AsciinemaCast 
-  src="/cast/nos_address.cast" 
-  speed=2
-  idle-time-limit=1
-  startAt=2
+Nosana is powered by the [Solana](https://solana.com/) blockchain. All deployments on Nosana are paid by the [NOS Token](https://nosana.com/token/). **To be explicit; This means you will need to load your wallet with both NOS and SOL to pay for the deployments.** SOL is used to pay for the blockchain transactions, and NOS is used to pay for the deployments.
+
+Follow this link to learn where to purchase NOS Tokens: [NOS token page](https://nosana.com/token/). Of course [NOS](https://nosana.com/token/) can be purchased via swaps from any Solana wallet.
+
+- [Swapping on Phantom](https://help.phantom.com/hc/en-us/articles/6048249796243-Phantom-Swapper-FAQ)
+- [Swapping on Solflare](https://academy.solflare.com/guides/how-to-swap-tokens/)
+
+::: warning NOS Token Address
+Please take note the official token address: [nosXBVoaCTtYdLvKY6Csb4AC8JCdQKKAaWYtx2ZMoo7](https://explorer.solana.com/address/nosXBVoaCTtYdLvKY6Csb4AC8JCdQKKAaWYtx2ZMoo7)
+:::
+
+### Posting Deployments
+
+To deploy the Nosana [ Deepseek-R1-Qwen-1.5B ](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) job, you will need to run the following command:
+
+```bash
+npx @nosana/cli job post \
+  --url https://template.nosana.com/Deepseek-R1-Qwen-1.5B/job-definition.json \
+  --market nvidia-3090 \
+  --timeout 60
+```
+Note the use of `--url`, this is not required, you can also pass in a job definition file using the `--file` flag. On the other hand, the `--market` and `--timeout` flags, are **required**. The `--timeout` flag takes the amount of minutes as input, and specifies how long the deployment will be available.
+
+
+### Nosana Market
+
+A Nosana market is the name for a grouping of GPUs. All of the GPUs types on Nosana are organized by a Solana address or their shortname: `market-slug`.
+
+For a full list of available markets, please take a look at [https://dashboard.nosana.com/markets](https://dashboard.nosana.com/markets/). Or run the following command:
+
+```bash
+npx @nosana/cli market list
+```
+
+To retrieve detailed details of a specific market run the following command:
+`<market>` can either be, the Nosana market address (The Solana address of the market), or the market slug, `nvidia-3090` in this example.
+
+```bash
+npx @nosana/cli market get <market>
+```
+### Example
+
+Here is an example of deploying the Deepseek-R1-Qwen-1.B model to Nosana in action.
+
+<AsciinemaCast
+  src="/cast/nos_job_post.cast"
+  autoplay=true
 />
 
-## Managing the Deployment
+## Monitoring Deployments
 
-## Monitoring the Deployment
+The next step of course is to monitor how the deployment is going. To check to see what the status of the deployment is, to extend the deployment or to stop the deployment.
+There are two ways to do this.
+
+### Dashboard
+
+The first is to use the [Nosana Dashboard](https://dashboard.nosana.com), which is the most convenient. It provides an easy to use interface to manage your deployments. You can navigate to [https://dashboard.nosana.com/](https://dashboard.nosana.com/), connect your wallet, and you should be able to see your deployments from the My Account page. You can also navigate to [https://dashboard.nosana.com/jobs/\<nosana-job-id\>](https://dashboard.nosana.com/jobs/) to see more detailed information about your deployment, stop, extend, or repost your deployment.
+
+![Deployment Page](./Nosana_Dashboard.png)
+
+#### Importing 
+
+To see the deployments you are making from the [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli/) tool, you will need to import your privatekey into your Solana browser wallet. The Nosana privatekey can be found at `$HOME/.nosana/nosana_key.json`. The contents of this file can be imported into Phantom and Solflare, follow these guides for more information:
+- [Phantom](https://help.phantom.com/hc/en-us/articles/15079894392851-Importing-an-Existing-Wallet-into-Phantom)
+- [Solflare](https://academy.solflare.com/guides/how-to-import-your-solana-wallet-into-solflare-using-a-private-key/)
+
+### CLI
+
+Of course the [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli) tool can also be used to monitor your deployment.
+
+Run the following command to get more information about your deployment:
+
+```bash
+npx @nosana/cli job get <nosana-job-id> --wait
+```
+
+Note the use of `--wait` flag. With the `--wait` flag, you can introspect the deployment logs.
+
+<AsciinemaCast
+  src="/cast/monitor_job.cast"
+  autoplay=true
+/>
+
+## Managing Deployments
+
+### Stopping Deployment
+
+### Extending Deployment
+
 
 ## Retrieving and Reviewing the Results
 
 ## Wrap Up
 
-```
-
-```
