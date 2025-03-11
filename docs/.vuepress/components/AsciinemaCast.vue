@@ -18,13 +18,13 @@ export default {
     authorImgUrl: String,
     idleTimeLimit: {
       type: Number,
-      default: 2
+      default: 1
     },
     preload: Boolean,
     autoplay: Boolean,
     fontSize: {
       type: Number,
-      default: 12
+      default: 8
     },
     speed: {
       type: Number,
@@ -38,7 +38,6 @@ export default {
       type: String,
       default: "asciinema",
       validator(value) {
-        
         return (
           [
             "asciinema",
