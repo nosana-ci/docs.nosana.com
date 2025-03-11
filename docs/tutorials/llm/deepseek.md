@@ -107,7 +107,6 @@ Using curl, we can easily get a response back. Copy and paste this in your termi
 
 <AsciinemaCast
   src="/cast/curl.cast"
-  autoplay=true
 />
 
 ```bash
@@ -129,7 +128,6 @@ You can use the OpenAI Python Client to connect to the endpoint and get started 
 
 <AsciinemaCast
   src="/cast/openai_python.cast"
-  autoplay=true
 />
 
 First install the OpenAI Python Client.
@@ -149,7 +147,6 @@ Then you can use the following Python code to interact with the model.
 
 <AsciinemaCast
   src="/cast/openai_js.cast"
-  autoplay=true
 />
 
 You can also use the OpenAI Node.js Client to connect to the endpoint and get started building.
@@ -304,7 +301,6 @@ Here is an example of deploying the Deepseek-R1-Qwen-1.B model to Nosana in acti
 
 <AsciinemaCast
   src="/cast/nos_job_post.cast"
-  autoplay=true
 />
 
 ## Monitoring Deployments
@@ -338,7 +334,6 @@ Note the use of `--wait` flag. With the `--wait` flag, you can introspect the de
 
 <AsciinemaCast
   src="/cast/monitor_job.cast"
-  autoplay=true
 />
 
 ## Managing Deployments
@@ -355,7 +350,6 @@ npx @nosana/cli job stop <nosana-job-id>
 
 <AsciinemaCast
   src="/cast/stop_job.cast"
-  autoplay=true
 />
 
 ### Extending Deployment
@@ -370,7 +364,6 @@ npx @nosana/cli job extend FATtTRGnveSmaRZHpLissUMqWKAG1kMX8VYHQjg5Afqc --timeou
 
 <AsciinemaCast
   src="/cast/stop_job.cast"
-  autoplay=true
 />
 
 ## Wrap Up
