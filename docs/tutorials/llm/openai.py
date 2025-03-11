@@ -1,8 +1,9 @@
+# openai_nosana.py
+
 from openai import OpenAI
 
 client = OpenAI(
     base_url="https://<nosana-job-id>.node.k8s.prd.nos.ci/v1",
-    api_key="na"
 )
 
 # Use the following func to get the available models
@@ -10,9 +11,7 @@ client = OpenAI(
 # print(model_list)
 
 chat_completion = client.chat.completions.create(
-        
-    # TODO: change the model to the Qwen model
-    model="meta-llama/Llama-3.2-1B-Instruct",
+    model="R1-Qwen-1.5B",
     messages=[
         {
             "role": "user",
