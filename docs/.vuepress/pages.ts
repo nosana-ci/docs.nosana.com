@@ -55,12 +55,12 @@ export default [
     text: 'Tutorial',
     icon: 'terminal',
     prefix: '/tutorials/',
-    collapsible: false,
+    collapsible: true,
     children: [
       {
         text: 'LLM',
         prefix: '/tutorials/llm/',
-        collapsible: false,
+        collapsible: true,
         children: ['deepseek.md'],
       },
     ],
