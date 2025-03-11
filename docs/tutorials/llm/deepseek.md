@@ -223,7 +223,10 @@ Please take note the official token address: [nosXBVoaCTtYdLvKY6Csb4AC8JCdQKKAaW
 
 ### Posting Deployments
 
-To deploy the Nosana [ Deepseek-R1-Qwen-1.5B ](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) job, you will need to run the following command:
+Posting deployments job to Nosana is easy. For a simplified version of creating a Nosana Deployment, use the [Deploy a Model tool](https://dashboard.nosana.com/jobs/create?templateId=qwen1.5b&randKey=8oy9rhrixrv) on the [Nosana Dashboard](https://dashboard.nosana.com/).
+
+
+To deploy the Nosana [ Deepseek-R1-Qwen-1.5B ](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) job using the [`@nosana/cli`], you will need to run the following command (assuming you have [Node.js](https://nodejs.org/en) installed).:
 
 ```bash
 npx @nosana/cli job post \
@@ -270,9 +273,9 @@ The first is to use the [Nosana Dashboard](https://dashboard.nosana.com), which 
 
 ![Deployment Page](./Nosana_Dashboard.png)
 
-#### Importing 
+#### Import `@nosana/cli` privatekey
 
-To see the deployments you are making from the [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli/) tool, you will need to import your privatekey into your Solana browser wallet. The Nosana privatekey can be found at `$HOME/.nosana/nosana_key.json`. The contents of this file can be imported into Phantom and Solflare, follow these guides for more information:
+To see the deployments you are making from the [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli/) tool in the Nosana Dashboard, you will need to import your privatekey into your Solana browser wallet. The Nosana privatekey can be found at `$HOME/.nosana/nosana_key.json`. The contents of this file can be imported into Phantom and Solflare, follow these guides for more information:
 - [Phantom](https://help.phantom.com/hc/en-us/articles/15079894392851-Importing-an-Existing-Wallet-into-Phantom)
 - [Solflare](https://academy.solflare.com/guides/how-to-import-your-solana-wallet-into-solflare-using-a-private-key/)
 
@@ -295,12 +298,41 @@ Note the use of `--wait` flag. With the `--wait` flag, you can introspect the de
 
 ## Managing Deployments
 
+Now that we know how to monitor the deployment the next step is to manage the deployment. This includes either stopping or extending the deployment. The rest of the guide will focus on using the [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli/) tool.
+
 ### Stopping Deployment
+
+When you run your job, you will have received a `<nosana-job-id>`, with this id we can stop the job. Run the following command to stop the deployment.
+
+```bash
+npx @nosana/cli job stop <nosana-job-id> 
+```
+
+<AsciinemaCast
+  src="/cast/stop_job.cast"
+  autoplay=true
+/>
+
 
 ### Extending Deployment
 
+<!-- TODO: Fix this AsciinemaCast -->
+Sometimes, there will be a situation, where the reserved time you posted with the job will not be enough. In these cases you can extend the deployment by running the following command:
 
-## Retrieving and Reviewing the Results
+```bash
+npx @nosana/cli job <nosana-job-id> --timeout <time-in-minutes>
+npx @nosana/cli job extend FATtTRGnveSmaRZHpLissUMqWKAG1kMX8VYHQjg5Afqc --timeout 60
+```
+
+<AsciinemaCast
+  src="/cast/stop_job.cast"
+  autoplay=true
+/>
 
 ## Wrap Up
 
+Now that you know the basics of how Nosana Deployments, you can refer back to the [Interacting with the Model](#interacting-with-the-model) to read again how to query the model.
+
+## Conclusion
+
+Deploying the DeepSeek-R1-Qwen-1.5B model with Nosana significantly streamlines the process of setting up high-performance AI inference services. By leveraging Nosana's GPU infrastructure, developers can efficiently scale deployments while maintaining optimal performance and resource utilization. Whether using the user-friendly Nosana Dashboard or the powerful Nosana CLI, the integration simplifies complex tasks, allowing teams to focus more on model innovation and less on infrastructure management. Explore Nosana's intuitive tools today to accelerate your development workflows and seamlessly bring your AI projects to life.
