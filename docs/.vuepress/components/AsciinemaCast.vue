@@ -54,6 +54,10 @@ export default {
         return value > 0;
       }
     },
+    poster: {
+      type: String,
+      default: "data:text/plain, \u001b]0;nosana@nos-os: ~\u0007\u001b[01;32mnosana@nos-os\u001b[00m:\u001b[01;34m~\u001b[00m$ npx @nosana/cli", 
+    },
     startAt: String,
     theme: {
       type: String,
