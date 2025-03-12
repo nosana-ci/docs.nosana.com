@@ -53,7 +53,7 @@ export default [
   },
   {
     text: 'Tutorial',
-    icon: 'terminal',
+    icon: 'book',
     prefix: '/tutorials/',
     collapsible: true,
     children: [
