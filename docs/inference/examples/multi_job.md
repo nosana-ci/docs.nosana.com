@@ -89,7 +89,7 @@ When the Nosana job is posted successfully you should see something similar to t
  | |\  | (_) \__ \ (_| | | | | (_| |
  |_| \_|\___/|___/\__,_|_| |_|\__,_|
 
-Reading keypair from /home/djmbritt/.nosana/nosana_key.json
+Reading keypair from /home/user/.nosana/nosana_key.json
 
 Network:	mainnet
 Wallet:		4WtG17Vn3SSoTAVvXxpopQTG3Qo9NUK28Zotv4rL1ccv
