@@ -137,10 +137,12 @@ export default {
       type: Number,
       default: 8
     },
-    rows: Number,
-    default: 20,
-    validator(value) {
-      return value > 0;
+    rows: {
+      type: Number,
+      default: 20,
+      validator(value) {
+        return value > 0;
+      }
     },
     cols: {
       type: Number,
