@@ -17,11 +17,7 @@ title: DeepSeek-R1
 
 ## Introduction
 
-This tutorial should help those that are curious on how to get started using [Nosana](https://nosana.com) by deploying a [Deepseek-R1-Qwen-1-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) model.
-
-A high-throughput and memory-efficient inference engine for running DeepSeek R1-Qwen-1.5B model using vLLM. This template provides an OpenAI-compatible API server for the R1-Qwen-1.5B model, optimized for performance using vLLM. This model is based on Qwen2.5-Math-1.5B and fine-tuned with DeepSeek-R1 samples, offering efficient performance for lightweight deployments.
-
-The advantage of using Nosana with DeepSeek R1 is that it simplifies the deployment process, allowing you to focus on model development and optimization.
+This tutorial should help those that are curious on how to get started using [Nosana](https://nosana.com) by deploying a [Deepseek-R1-Qwen-1-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) model. The advantage of using Nosana with DeepSeek R1 is that it simplifies the deployment process, allowing you to focus on model development and optimization.
 
 ## Pre-requisites
 
@@ -261,6 +257,13 @@ Here is an example of deploying the Deepseek-R1-Qwen-1.B model to Nosana in acti
 <AsciinemaCast
   src="/cast/nos_job_post.cast"
 />
+
+### OpenAI Compatible
+
+As mentioned in the [QuickStart](#quick-start) section, the endpoint will be OpenAI comptabible. The following endpoints will be available:
+
+![OpenAI FastAPI](./DeepSeek_Swagger_docs.png)
+
 
 ## Monitoring Deployments
 
