@@ -1,5 +1,5 @@
 <template>
-    <div ref="player"></div>
+  <div ref="player"></div>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ function Base64() {
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
   // public method for encoding
-  this.encode = function(input) {
+  this.encode = function (input) {
     var output = "";
     var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
     var i = 0;
@@ -40,7 +40,7 @@ function Base64() {
   };
 
   // public method for decoding
-  this.decode = function(input) {
+  this.decode = function (input) {
     var output = "";
     var chr1, chr2, chr3;
     var enc1, enc2, enc3, enc4;
@@ -67,7 +67,7 @@ function Base64() {
   };
 
   // private method for UTF-8 encoding
-  let _utf8_encode = function(string) {
+  let _utf8_encode = function (string) {
     string = string.replace(/\r\n/g, "\n");
     var utftext = "";
     for (var n = 0; n < string.length; n++) {
@@ -87,7 +87,7 @@ function Base64() {
   };
 
   // private method for UTF-8 decoding
-  let _utf8_decode = function(utftext) {
+  let _utf8_decode = function (utftext) {
     let string = "";
     let i = 0;
     let c = 0;
@@ -137,17 +137,17 @@ export default {
       type: Number,
       default: 8
     },
-// TODO: This doesn't seem to work properly
-    height: Number,
-    default: 80,
-    validator(value) {
-      return value > 0;
-    },
-// TODO: This doesn't seem to work properly
-    width: Number,
+    rows: Number,
     default: 20,
     validator(value) {
       return value > 0;
+    },
+    cols: {
+      type: Number,
+      default: 80,
+      validator(value) {
+        return value > 0;
+      }
     },
     speed: {
       type: Number,
@@ -208,14 +208,14 @@ export default {
           "data:text/plain;base64," + Base64Instance.encode(this.src).toString();
       }
 
-      this.player = AsciinemaPlayer.create( { 
-          url: data,
-          fetchOpts: { method: 'POST' },
-        },
+      this.player = AsciinemaPlayer.create({
+        url: data,
+        fetchOpts: { method: 'POST' },
+      },
         this.$refs.player,
         {
-          width: this.width,
-          height: this.height,
+          cols: this.cols,
+          rows: this.rows,
           loop: true,
           "font-size": this.fontSize,
           title: this.title,
