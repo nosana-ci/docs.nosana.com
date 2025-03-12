@@ -1,5 +1,5 @@
 {"version":2,"width":100,"height":24,"timestamp":1741712225,"env":{"SHELL":"/bin/bash","TERM":"xterm-256color"},"theme":{"fg":"#4c4f69","bg":"#eff1f5","palette":"#bcc0cc:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#5c5f77:#acb0be:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#6c6f85"}}
-[0.40056, "o", "\u001b[?2004h\u001b]0;djmbritt@pop-os: ~\u0007\u001b[01;32mdjmbritt@pop-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
+[0.40056, "o", "\u001b[?2004h\u001b]0;nosana@nos-os: ~\u0007\u001b[01;32mnosana@nos-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
 [1.693595, "o", "\u001b[7mnpx @nosana/cli job stop BV5uB5tgkj5hHBM36bf8yFvt7sae2QgyFL6dp9hvTNQX\u001b[27m\r\n\r"]
 [3.28355, "o", "\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[Cnpx @nosana/cli job stop BV5uB5tgkj5hHBM36bf8yFvt7sae2QgyFL6dp9hvTNQX\r\n\r\u001b[A"]
 [3.284259, "o", "\r\n\u001b[?2004l\r"]
@@ -15,7 +15,7 @@
 [4.127805, "o", "\u001b[1G\u001b[0K⠇"]
 [4.207314, "o", "\u001b[1G\u001b[0K"]
 [5.416252, "o", "  _   _                             \r\n | \\ | | ___  ___  __ _ _ __   __ _ \r\n |  \\| |/ _ \\/ __|/ _` | '_ \\ / _` |\r\n | |\\  | (_) \\__ \\ (_| | | | | (_| |\r\n |_| \\_|\\___/|___/\\__,_|_| |_|\\__,_|\r\n                                    \r\n"]
-[5.417005, "o", "Reading keypair from \u001b[1;36m/home/djmbritt/.nosana/nosana_key.json\u001b[0m\r\n\r\n"]
+[5.417005, "o", "Reading keypair from \u001b[1;36m/home/user/.nosana/nosana_key.json\u001b[0m\r\n\r\n"]
 [6.245079, "o", "Network:\t\u001b[1;32mmainnet\u001b[0m\r\n"]
 [7.0718, "o", "Wallet:\t\t\u001b[1;32mCTYw7JqNeh92BLFCJ5pR9HbpZHCsQPxtV2mZdD7WY2bD\u001b[0m\r\n"]
 [7.071847, "o", "SOL balance:\t\u001b[1;32m0.286739218 SOL\u001b[0m\r\n"]
@@ -110,6 +110,6 @@
 [11.464914, "o", "⠙"]
 [11.466021, "o", "\u001b[1G"]
 [11.466036, "o", "\u001b[0K"]
-[11.483439, "o", "\u001b[?2004h\u001b]0;djmbritt@pop-os: ~\u0007\u001b[01;32mdjmbritt@pop-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
+[11.483439, "o", "\u001b[?2004h\u001b]0;nosana@nos-os: ~\u0007\u001b[01;32mnosana@nos-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
 [13.849332, "o", "\u001b[?2004l\r\r\n"]
 [13.849348, "o", "exit\r\n"]

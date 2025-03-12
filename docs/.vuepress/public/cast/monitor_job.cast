@@ -1,6 +1,6 @@
 {"version":2,"width":100,"height":24,"timestamp":1741693610,"env":{"TERM":"xterm-256color","SHELL":"/bin/bash"},"theme":{"fg":"#4c4f69","bg":"#eff1f5","palette":"#bcc0cc:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#5c5f77:#acb0be:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#6c6f85"}}
 [0.306805, "o", "\u001b[?2004h"]
-[0.306812, "o", "\u001b]0;djmbritt@pop-os: ~\u0007\u001b[01;32mdjmbritt@pop-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
+[0.306812, "o", "\u001b]0;nosana@nos-os: ~\u0007\u001b[01;32mnosana@nos-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
 [2.63713, "o", "\u001b[7mnpx @nosana/cli job get B7owLMjUup9znGX6BHVoUm2fwo2dgt8frG6dTE6pMU9y --wait\u001b[27m\r\n\r"]
 [3.627773, "o", "\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[Cnpx @nosana/cli job get B7owLMjUup9znGX6BHVoUm2fwo2dgt8frG6dTE6pMU9y --wait\r\n\r\u001b[A\r\n\u001b[?2004l\r"]
 [3.883726, "o", "\u001b[1G"]
@@ -20,7 +20,7 @@
 [4.531594, "o", "\u001b[1G\u001b[0K⠏"]
 [4.579169, "o", "\u001b[1G\u001b[0K"]
 [5.742819, "o", "  _   _                             \r\n | \\ | | ___  ___  __ _ _ __   __ _ \r\n |  \\| |/ _ \\/ __|/ _` | '_ \\ / _` |\r\n | |\\  | (_) \\__ \\ (_| | | | | (_| |\r\n |_| \\_|\\___/|___/\\__,_|_| |_|\\__,_|\r\n                                    \r\n"]
-[5.74351, "o", "Reading keypair from \u001b[1;36m/home/djmbritt/.nosana/nosana_key.json\u001b[0m\r\n\r\n"]
+[5.74351, "o", "Reading keypair from \u001b[1;36m/home/user/.nosana/nosana_key.json\u001b[0m\r\n\r\n"]
 [6.614953, "o", "Network:\t\u001b[1;32mmainnet\u001b[0m\r\n"]
 [7.66841, "o", "Wallet:\t\t\u001b[1;32mCTYw7JqNeh92BLFCJ5pR9HbpZHCsQPxtV2mZdD7WY2bD\u001b[0m\r\n"]
 [7.668453, "o", "SOL balance:\t\u001b[1;32m0.289395494 SOL\u001b[0m\r\n"]
@@ -182,5 +182,5 @@
 [23.038917, "o", "^C"]
 [23.039519, "o", "\u001b[?25h"]
 [23.053253, "o", "\r\n"]
-[23.059255, "o", "\u001b[?2004h\u001b]0;djmbritt@pop-os: ~\u0007\u001b[01;32mdjmbritt@pop-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
+[23.059255, "o", "\u001b[?2004h\u001b]0;nosana@nos-os: ~\u0007\u001b[01;32mnosana@nos-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
 [23.59067, "o", "\u001b[?2004l\r\r\nexit\r\n"]

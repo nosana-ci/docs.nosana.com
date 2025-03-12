@@ -1,5 +1,5 @@
 {"version":2,"width":80,"height":24,"timestamp":1741715524,"env":{"TERM":"xterm-256color","SHELL":"/bin/bash"},"theme":{"fg":"#4c4f69","bg":"#eff1f5","palette":"#bcc0cc:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#5c5f77:#acb0be:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#6c6f85"}}
-[0.386304, "o", "\u001b[?2004h\u001b]0;djmbritt@pop-os: ~\u0007\u001b[01;32mdjmbritt@pop-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
+[0.386304, "o", "\u001b[?2004h\u001b]0;nosana@nos-os: ~\u0007\u001b[01;32mnosana@nos-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
 [2.634016, "o", "p"]
 [2.859177, "o", "y"]
 [3.028592, "o", "t"]
@@ -19,7 +19,7 @@
 [6.011299, "o", "\u001b8"]
 [6.085614, "o", "\r"]
 [6.087254, "o", "\u001b[K"]
-[6.087542, "o", "\u001b]0;djmbritt@pop-os: ~\u0007\u001b[01;32mdjmbritt@pop-os\u001b[00m:\u001b[01;34m~\u001b[00m$ python3 openai_nosana.py "]
+[6.087542, "o", "\u001b]0;nosana@nos-os: ~\u0007\u001b[01;32mnosana@nos-os\u001b[00m:\u001b[01;34m~\u001b[00m$ python3 openai_nosana.py "]
 [7.003057, "o", "\r\n"]
 [7.003064, "o", "\u001b[?2004l\r"]
 [8.689191, "o", "Okay, so I need to explain superconductors to someone as if they're just five years old. Let me start by breaking it down into parts that make sense to a five-year-old. \r\n\r\n"]
@@ -37,6 +37,6 @@
 [13.230314, "o", "These superconductors have a magical property where electrons move in a loop when a magnetic field is applied. This loop prevents the electrons from getting stuck, so they can pass through the entire material smoothly for a long time without losing energy.\r\n\r\n"]
 [13.75858, "o", "Superconductors are used in cool things like MRI machines, which help create clear pictures of your toys when you’re super thin. They also help doctors scan patients while they’re fasted, releasing natural substances to keep the scan smooth. Plus, there are pills that help control sugar levels, making it easy to have a smooth morning coffee without the sugary guess today.\r\n\r\n"]
 [13.97989, "o", "So, superconductors keep your toys, drinks, and happiness from being ruined, even when you want them with you longer than the world itself!"]
-[14.094008, "o", "\u001b[?2004h\u001b]0;djmbritt@pop-os: ~\u0007\u001b[01;32mdjmbritt@pop-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
+[14.094008, "o", "\u001b[?2004h\u001b]0;nosana@nos-os: ~\u0007\u001b[01;32mnosana@nos-os\u001b[00m:\u001b[01;34m~\u001b[00m$ "]
 [16.448143, "o", "\u001b[?2004l\r\r\n"]
 [16.448156, "o", "exit\r\n"]
