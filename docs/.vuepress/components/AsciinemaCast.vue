@@ -7,9 +7,9 @@ import * as AsciinemaPlayer from 'asciinema-player'
 
 // Base64 UTF8 String Encoder
 function b64EncodeUnicode(str) {
-    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
-        function toSolidBytes(match, p1) {
-            return String.fromCharCode('0x' + p1);
+  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+    function toSolidBytes(match, p1) {
+      return String.fromCharCode('0x' + p1);
     }));
 }
 
@@ -57,7 +57,7 @@ export default {
     },
     poster: {
       type: String,
-      default: "data:text/plain, \u001b]0;nosana@nos-os: ~\u0007\u001b[01;32mnosana@nos-os\u001b[00m:\u001b[01;34m~\u001b[00m$ ", 
+      default: "data:text/plain, \u001b]0;nosana@nos-os: ~\u0007\u001b[01;32mnosana@nos-os\u001b[00m:\u001b[01;34m~\u001b[00m$ ",
     },
     startAt: String,
     theme: {
@@ -120,13 +120,13 @@ export default {
           cols: this.cols,
           rows: this.rows,
           loop: true,
-          "font-size": this.fontSize,
+          fontSize: this.fontSize,
           title: this.title,
           author: this.author,
-          "author-img-url": this.authorImgUrl,
-          "author-url": this.authorUrl,
+          authorImgUrl: this.authorImgUrl,
+          authorUrl: this.authorUrl,
           theme: this.theme,
-          "idle-time-limit": this.idleTimeLimit,
+          idleTimeLimit: this.idleTimeLimit,
           startAt: this.startAt,
           poster: this.poster,
           speed: this.speed,
