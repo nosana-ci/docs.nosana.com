@@ -23,7 +23,7 @@ This tutorial should help those that are curious on how to get started using [No
 
 ### Required
 
-- [Node.JS](https://nodejs.org/en/download/)
+- [Node.JS](https://nodejs.org/en/download/) (Minimum version is V18)
 - [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli)
 
 ### Optional
@@ -41,11 +41,11 @@ Can't wait to get started? Here's a quick guide to deploying the DeepSeek R1 mod
 
 For complete beginners, the easiest way to deploy the DeepSeek R1 model is through the Nosana Dashboard. The Dashboard provides a user-friendly interface that will guide you through the deployment process step by step.
 
-**Deploy this model now with [Nosana Dashboard](https://dashboard.nosana.com/jobs/create?templateId=deepseek-r1-qwen-1.5b)**
+**Deploy DeepSeek-R1 now on [Nosana Dashboard](https://dashboard.nosana.com/jobs/create?templateId=deepseek-r1-qwen-1.5b)**
 
 ### Using Nosana CLI
 
-Assuming you have the [Nosana CLI](https://github.com/nosana-ci/nosana-cli) installed and you have topped up your wallet with [SOL](https://solana.com/) and [NOS](https://nosana.com/token).
+Assuming you have the [Nosana CLI](https://github.com/nosana-ci/nosana-cli) installed and you have topped up your wallet with [SOL](https://solana.com/) and [NOS](https://nosana.com/token). Read the [Nosana Wallet and Funds](#nosana-wallet-and-funds) section for more information.
 
 ### Setting up Nosana CLI
 
@@ -175,13 +175,16 @@ Use the [Starting with Ollama Guide](https://docs.openwebui.com/getting-started/
 ### Troubleshooting Common Issues
 
 **Deployment Fails:**
+
 - Ensure sufficient NOS/SOL tokens in your wallet, you will need a minimum of 0.05 SOL, and a minimum amount of NOS to pay for the Nosana deployment. On the [NVIDIA-3090 Market](https://dashboard.nosana.com/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ) it costs **$0.192/hour**. Make sure you have that amount in NOS.
 - Verify network connectivity.
 
 **API not responding:**
+
 - Check Service URL is correct (verify `<nosana-job-id>`).
 
 **CLI authentication issues:**
+
 - Confirm correct private key imported into Nosana Dashboard.
 
 If issues persist, contact Nosana support on [Discord](https://discord.gg/nosana).
@@ -207,7 +210,11 @@ To read more about the Job Specification, go to [Nosana Job Specification Sectio
 
 ## Deployments
 
-Nosana is powered by the [Solana](https://solana.com/) blockchain. All deployments on Nosana are paid by the [NOS Token](https://nosana.com/token/). **To be explicit; This means you will need to load your wallet with both NOS and SOL to pay for the deployments.** SOL is used to pay for the blockchain transactions, and NOS is used to pay for the deployments.
+### Nosana Wallet and Funds
+
+Nosana is powered by the [Solana](https://solana.com/) blockchain. All deployments on Nosana are paid by the [NOS Token](https://nosana.com/token/). **To be explicit; This means you will need to load your wallet with both [NOS](https://nosana.com/token/) and [Sol](https://solana.com/) to pay for the deployments.** SOL is used to pay for the blockchain transactions, and NOS is used to pay for the deployments.
+
+Ensure sufficient `NOS/SOL` tokens in your wallet, you will need a minimum of `0.05 SOL`, and a minimum amount of NOS to pay for the Nosana deployment. On the [NVIDIA-3090](https://dashboard.nosana.com/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ) Market it costs `$0.192/hour`. Make sure you have that amount in NOS for the time that you want to reserve.
 
 Follow this link to learn where to purchase NOS Tokens: [NOS token page](https://nosana.com/token/). Of course [NOS](https://nosana.com/token/) can be purchased via swaps from any Solana wallet.
 
@@ -215,24 +222,12 @@ Follow this link to learn where to purchase NOS Tokens: [NOS token page](https:/
 - [Swapping on Solflare](https://academy.solflare.com/guides/how-to-swap-tokens/)
 
 ::: warning NOS Token Address
-Please take note the official token address: [nosXBVoaCTtYdLvKY6Csb4AC8JCdQKKAaWYtx2ZMoo7](https://explorer.solana.com/address/nosXBVoaCTtYdLvKY6Csb4AC8JCdQKKAaWYtx2ZMoo7)
+Please take note of the official Nosana Token address: [nosXBVoaCTtYdLvKY6Csb4AC8JCdQKKAaWYtx2ZMoo7](https://explorer.solana.com/address/nosXBVoaCTtYdLvKY6Csb4AC8JCdQKKAaWYtx2ZMoo7)
 :::
 
 ### Posting Deployments
 
 Posting deployments job to Nosana is easy. For a simplified version of creating a Nosana Deployment, use the [Deploy a Model tool](https://dashboard.nosana.com/jobs/create?templateId=qwen1.5b&randKey=8oy9rhrixrv) on the [Nosana Dashboard](https://dashboard.nosana.com/).
-
-
-To deploy the Nosana [ Deepseek-R1-Qwen-1.5B ](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) job using the [`@nosana/cli`], you will need to run the following command (assuming you have [Node.js](https://nodejs.org/en) installed).:
-
-```bash
-npx @nosana/cli job post \
-  --url https://template.nosana.com/Deepseek-R1-Qwen-1.5B/job-definition.json \
-  --market nvidia-3090 \
-  --timeout 60
-```
-Note the use of `--url`, this is not required, you can also pass in a job definition file using the `--file` flag. On the other hand, the `--market` and `--timeout` flags, are **required**. The `--timeout` flag takes the amount of minutes as input, and specifies how long the deployment will be available.
-
 
 ### Nosana Market
 
@@ -250,7 +245,19 @@ To retrieve detailed details of a specific market run the following command:
 ```bash
 npx @nosana/cli market get <market>
 ```
+
 ### Example
+
+To deploy the Nosana [Deepseek-R1-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) job using the [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli/), you will need to run the following command (assuming you have [Node.js](https://nodejs.org/en) installed).:
+
+```bash
+npx @nosana/cli job post \
+  --url https://template.nosana.com/Deepseek-R1-Qwen-1.5B/job-definition.json \
+  --market nvidia-3090 \
+  --timeout 60
+```
+
+Note the use of `--url`, this is not required, you can also pass in a job definition file using the `--file` flag. On the other hand, the `--market` and `--timeout` flags, are **required**. The `--timeout` flag takes the amount of minutes as input, and specifies how long the deployment will be available.
 
 Here is an example of deploying the Deepseek-R1-Qwen-1.B model to Nosana in action.
 
@@ -263,7 +270,6 @@ Here is an example of deploying the Deepseek-R1-Qwen-1.B model to Nosana in acti
 As mentioned in the [QuickStart](#quick-start) section, the endpoint will be OpenAI comptabible. The following endpoints will be available:
 
 ![OpenAI FastAPI](./DeepSeek_Swagger_docs.png)
-
 
 ## Monitoring Deployments
 
@@ -279,6 +285,7 @@ The first is to use the [Nosana Dashboard](https://dashboard.nosana.com), which 
 #### Import `@nosana/cli` privatekey
 
 To see the deployments you are making from the [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli/) tool in the Nosana Dashboard, you will need to import your privatekey into your Solana browser wallet. The Nosana privatekey can be found at `$HOME/.nosana/nosana_key.json`. The contents of this file can be imported into Phantom and Solflare, follow these guides for more information:
+
 - [Phantom](https://help.phantom.com/hc/en-us/articles/15079894392851-Importing-an-Existing-Wallet-into-Phantom)
 - [Solflare](https://academy.solflare.com/guides/how-to-import-your-solana-wallet-into-solflare-using-a-private-key/)
 
@@ -307,7 +314,7 @@ Now that we know how to monitor the deployment the next step is to manage the de
 When you run your job, you will have received a `<nosana-job-id>`, with this id we can stop the job. Run the following command to stop the deployment.
 
 ```bash
-npx @nosana/cli job stop <nosana-job-id> 
+npx @nosana/cli job stop <nosana-job-id>
 ```
 
 <AsciinemaCast
@@ -316,12 +323,10 @@ npx @nosana/cli job stop <nosana-job-id>
 
 ### Extending Deployment
 
-<!-- TODO: Fix this AsciinemaCast -->
 Sometimes, there will be a situation, where the reserved time you posted with the job will not be enough. In these cases you can extend the deployment by running the following command:
 
 ```bash
 npx @nosana/cli job <nosana-job-id> --timeout <time-in-minutes>
-npx @nosana/cli job extend FATtTRGnveSmaRZHpLissUMqWKAG1kMX8VYHQjg5Afqc --timeout 60
 ```
 
 <AsciinemaCast
@@ -336,7 +341,7 @@ Now that you know the basics of how Nosana Deployments, you can refer back to th
 
 Deploying the DeepSeek-R1-Qwen-1.5B model with Nosana significantly streamlines the process of setting up high-performance AI inference services. By leveraging Nosana’s GPU infrastructure, developers can efficiently scale deployments while maintaining optimal performance and resource utilization. Whether using the user-friendly Nosana Dashboard or the powerful Nosana CLI, the integration simplifies complex tasks, allowing teams to focus more on model innovation and less on infrastructure management. Explore Nosana's intuitive tools today to accelerate your development workflows and seamlessly bring your AI projects to life.
 
-Now that you are familiar with deploying DeepSeek R1 on Nosana, you're ready to innovate quickly and efficiently. Visit the [ Nosana Dashboard ](https://dashboard.nosana.com) or explore more advanced CLI options to power your next AI project effortlessly.
+Now that you are familiar with deploying DeepSeek R1 on Nosana, you're ready to innovate quickly and efficiently. Visit the [Nosana Dashboard](https://dashboard.nosana.com) or explore more advanced CLI options to power your next AI project effortlessly.
 
 ### Next Steps
 
