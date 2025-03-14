@@ -29,6 +29,10 @@ export default {
       default: 1
     },
     preload: Boolean,
+    loop: {
+      type: Boolean,
+      default: true,
+    }
     autoplay: Boolean,
     fontSize: {
       type: Number,
@@ -119,7 +123,7 @@ export default {
         {
           cols: this.cols,
           rows: this.rows,
-          loop: true,
+          loop: this.loop,
           fontSize: this.fontSize,
           title: this.title,
           author: this.author,
