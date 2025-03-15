@@ -1,6 +1,8 @@
 import { defineUserConfig } from 'vuepress';
+import vue from '@vitejs/plugin-vue';
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components';
+import path from 'path';
 import theme from './theme.js';
-
 export default defineUserConfig({
   lang: 'en-US',
   title: 'Documentation',
@@ -8,4 +10,13 @@ export default defineUserConfig({
   base: '/',
   theme,
   shouldPrefetch: false,
+  plugins: [
+    vue(),
+    registerComponentsPlugin({
+      componentsDir: path.resolve(__dirname, '../components'),
+      components: {
+        AsciinemaCast: path.resolve(__dirname, './components/AsciinemaCast.vue'),
+      },
+    }),
+  ],
 });
