@@ -2,7 +2,7 @@ import { defineUserConfig } from 'vuepress';
 import vue from '@vitejs/plugin-vue';
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components';
 import path from 'path';
-import theme from './theme.js';
+import theme from './theme';
 export default defineUserConfig({
   lang: 'en-US',
   title: 'Documentation',
