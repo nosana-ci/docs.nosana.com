@@ -153,7 +153,7 @@ Then you can use the following TypeScript code to interact with the model.
 @[code ts](./openai.ts)
 <ClientOnly>
 <AsciinemaCast
-    src="/cast/openai_node.cast"
+    src="/cast/openai_js.cast"
   />
 </ClientOnly>
 :::
@@ -279,7 +279,7 @@ Here is an example of deploying the Deepseek-R1-Qwen-1.B model to Nosana in acti
 
 ### OpenAI Compatible
 
-As mentioned in the [QuickStart](#quick-start) section, the endpoint will be OpenAI comptabible. The following endpoints will be available:
+As mentioned in the [QuickStart](#quick-start) section, the endpoint will be OpenAI compatible. The following endpoints will be available:
 
 ![OpenAI FastAPI](./DeepSeek_Swagger_docs.png)
 
@@ -333,7 +333,7 @@ npx @nosana/cli job stop <nosana-job-id>
 
 <ClientOnly>
   <AsciinemaCast
-    src="/cast/stop_job.cast"
+    src="/cast/nos_job_stop.cast"
   />
 </ClientOnly>
 
@@ -342,12 +342,12 @@ npx @nosana/cli job stop <nosana-job-id>
 Sometimes, there will be a situation, where the reserved time you posted with the job will not be enough. In these cases you can extend the deployment by running the following command:
 
 ```bash
-npx @nosana/cli job <nosana-job-id> --timeout <time-in-minutes>
+npx @nosana/cli job extend <nosana-job-id> --timeout <time-in-minutes>
 ```
 
 <ClientOnly>
   <AsciinemaCast
-    src="/cast/stop_job.cast"
+    src="/cast/nos_job_extend.cast"
   />
 </ClientOnly>
 
