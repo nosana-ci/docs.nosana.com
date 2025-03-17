@@ -55,9 +55,11 @@ To get your wallet address, and top up your wallet:
 npx @nosana/cli address
 ```
 
-<AsciinemaCast
-  src="/cast/nos_wallet.cast"
-/>
+<ClientOnly>
+  <AsciinemaCast
+    src="/cast/nos_address.cast"
+  />
+</ClientOnly>
 
 ### Deploying via CLI
 
@@ -70,9 +72,11 @@ npx @nosana/cli job post \
   --timeout 60 \
 ```
 
-<AsciinemaCast
-  src="/cast/nos_job_post.cast"
-/>
+<ClientOnly>
+  <AsciinemaCast
+    src="/cast/nos_job_post.cast"
+  />
+</ClientOnly>
 
 This will deploy the DeepSeek R1 model on the Nosana network using the specified job definition file. You will see some output indicating the status of the deployment process, and once the job is successfully deployed, you can start using the model right away.
 
@@ -104,9 +108,11 @@ curl https://<nosana-job-id>.node.k8s.prd.nos.ci/v1/chat/completions \
    }'
 ```
 
-<AsciinemaCast
-  src="/cast/curl.cast"
-/>
+<ClientOnly>
+  <AsciinemaCast
+    src="/cast/curl.cast"
+  />
+</ClientOnly>
 :::
 
 #### [OpenAI Python Client](https://github.com/openai/openai-python)
@@ -124,9 +130,11 @@ Then you can use the following Python code to interact with the model.
 
 @[code python](./openai.py)
 
-<AsciinemaCast
-  src="/cast/openai_python.cast"
-/>
+<ClientOnly>
+  <AsciinemaCast
+    src="/cast/openai_python.cast"
+  />
+</ClientOnly>
 :::
 
 #### [OpenAI Node.JS Client](https://github.com/openai/openai-node)
@@ -143,9 +151,11 @@ npm i -g openai
 Then you can use the following TypeScript code to interact with the model.
 
 @[code ts](./openai.ts)
+<ClientOnly>
 <AsciinemaCast
-  src="/cast/openai_js.cast"
-/>
+    src="/cast/openai_node.cast"
+  />
+</ClientOnly>
 :::
 
 #### [Open WebUI](https://github.com/open-webui/open-webui)
@@ -261,9 +271,11 @@ Note the use of `--url`, this is not required, you can also pass in a job defini
 
 Here is an example of deploying the Deepseek-R1-Qwen-1.B model to Nosana in action.
 
-<AsciinemaCast
-  src="/cast/nos_job_post.cast"
-/>
+<ClientOnly>
+  <AsciinemaCast
+    src="/cast/nos_job_post.cast"
+  />
+</ClientOnly>
 
 ### OpenAI Compatible
 
@@ -301,9 +313,11 @@ npx @nosana/cli job get <nosana-job-id> --wait
 
 Note the use of `--wait` flag. With the `--wait` flag, you can introspect the deployment logs.
 
-<AsciinemaCast
-  src="/cast/monitor_job.cast"
-/>
+<ClientOnly>
+  <AsciinemaCast
+    src="/cast/nos_job_get.cast"
+  />
+</ClientOnly>
 
 ## Managing Deployments
 
@@ -317,9 +331,11 @@ When you run your job, you will have received a `<nosana-job-id>`, with this id 
 npx @nosana/cli job stop <nosana-job-id>
 ```
 
-<AsciinemaCast
-  src="/cast/stop_job.cast"
-/>
+<ClientOnly>
+  <AsciinemaCast
+    src="/cast/stop_job.cast"
+  />
+</ClientOnly>
 
 ### Extending Deployment
 
@@ -329,9 +345,11 @@ Sometimes, there will be a situation, where the reserved time you posted with th
 npx @nosana/cli job <nosana-job-id> --timeout <time-in-minutes>
 ```
 
-<AsciinemaCast
-  src="/cast/stop_job.cast"
-/>
+<ClientOnly>
+  <AsciinemaCast
+    src="/cast/stop_job.cast"
+  />
+</ClientOnly>
 
 ## Wrap Up
 
