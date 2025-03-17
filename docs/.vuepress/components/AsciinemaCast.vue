@@ -32,8 +32,11 @@ export default {
     loop: {
       type: Boolean,
       default: true,
-    }
-    autoplay: Boolean,
+    },
+    autoplay: {
+      type: Boolean,
+      default: false,
+    },
     fontSize: {
       type: Number,
       default: 8
