@@ -11,7 +11,7 @@ To address this, Nosana allows you to:
 - Keep your job definitions off IPFS (public storage).
 - Use secure, private methods to share job definitions directly between you (the client) and Nosana Hosts.
 
-Confidential jobs leverage encrypted peer-to-peer connections, allowing sensitive input and output data to remain protected throughout the execution process.
+Confidential jobs leverage secure peer-to-peer connections, allowing sensitive input and output data to remain protected throughout the execution process.
 
 ## How Confidential Jobs Work
 
@@ -25,7 +25,7 @@ When posting a confidential job:
 
 ### Authenticated Docker Hub Access
 
-Consider a scenario where you want to securely pull a private Docker image from Docker Hub. The following Nosana job definition demonstrates how to specify Docker Hub credentials without exposing them publicly:
+Consider a scenario where you want to securely pull a private Docker image from Docker Hub. The following Nosana job definition demonstrates how to specify Docker Hub credentials without exposing them publicly, create a json file in your filesystem with the name `confidential.json`:
 
 ```json
 {
@@ -53,11 +53,15 @@ Consider a scenario where you want to securely pull a private Docker image from 
 }
 ```
 
-To post the confidential job securely, use the following command, noting the `--confidential` flag:
-
 :::warning
 Do not forget to pass the `--confidential` flag, otherwise your job definition will be posted to the public.
 :::
+
+:::info Markets
+You can use a different market. As always list of markets can be retrieved by running the `npx @nosana/cli market list` command.
+:::
+
+To post the confidential job securely, use the following command, noting the `--confidential` flag:
 
 ```bash
 npx @nosana/cli job post \
@@ -67,7 +71,11 @@ npx @nosana/cli job post \
   --confidential
 ```
 
-When reviewing the publicly posted job definition, you'll notice that the job definiton file has been entirely replaced with only necessary metadata.
+<AsciinemaCast src="/cast/confidential.cast" />
+
+### Uploaded Job Definition
+
+When reviewing the publicly posted job definition, you'll notice that the job definition file has been entirely replaced with only necessary metadata.
 The uploaded job definition, provides the instructions necessary for you to upload the confidential job definition.
 This ensures that no sensitive information is exposed publicly. Only the job initiator can introspect the full job details locally.
 
@@ -97,3 +105,9 @@ npx @nosana/cli job post \
   --verbose \
   --wait
 ```
+
+<AsciinemaCast src="/cast/confidential_wait.cast" />
+
+## Dashboard
+
+You can still navigate to the Dashboard to introspect the logs of your job. These are made available to you only when you sign a transaction, with your wallet and login to the dashboard. The logs will be loaded from the Nosana Host, and are _only available as long as the host is running the job_. After the host has completed the job, you will not be able to introspect the logs any more.
