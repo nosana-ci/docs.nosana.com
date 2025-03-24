@@ -25,6 +25,7 @@ export default [
       'writing_a_job',
       'markets',
       'cached_resources',
+      'confidential',
       {
         text: 'Examples',
         prefix: '/inference/examples/',
