@@ -71,7 +71,9 @@ npx @nosana/cli job post \
   --confidential
 ```
 
-<AsciinemaCast src="/cast/confidential.cast" />
+<ClientOnly>
+  <AsciinemaCast src="/cast/confidential.cast" />
+</ClientOnly>
 
 ### Uploaded Job Definition
 
@@ -106,7 +108,9 @@ npx @nosana/cli job post \
   --wait
 ```
 
-<AsciinemaCast src="/cast/confidential_wait.cast" />
+<ClientOnly>
+  <AsciinemaCast src="/cast/confidential_wait.cast" />
+</ClientOnly>
 
 ## Dashboard
 

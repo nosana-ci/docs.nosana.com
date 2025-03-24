@@ -1,0 +1,30 @@
+{
+  "version": "0.1",
+  "type": "container",
+  "meta": {
+    "trigger": "cli"
+  },
+  "ops": [
+    {
+      "type": "container/run",
+      "id": "nginx",
+      "args": {
+        "cmd": [],
+        "image": "nginx",
+        "expose": [ 
+          { 
+            "port": 80, 
+            "health_checks": [
+              {
+                "type": "http",
+                "path": "/",
+                "method": "GET",
+                "expected_status": 200
+              }
+            ] 
+          }
+        ]
+      }
+    }
+  ]
+}
