@@ -10,7 +10,7 @@
 
 ## Execution Flow
 
-These steps describe how submitting an inference job to the Nosana network.
+These steps describe the flow for submitting an inference job to the Nosana network.
 
 1. **Job Submission**: A user submits a job defined in a JSON format. This job specifies the tasks to be executed, the Docker images to be used, and whether GPU resources are required.
 2. **Node Selection**: The job is assigned to a Nosana node based on its requirements. The nodes are identified by their Solana addresses.
@@ -33,7 +33,7 @@ Note there are 2 `ops` (short for operations) happening in this inference job, b
 1. The first one is using the [nvidia-smi](https://developer.nvidia.com/system-management-interface) and other utilities to log hardware specifications of the Nosana node.
 2. The second element in the `ops` array is using [Whisper](https://github.com/openai/whisper) to transcribe an audio file.
 
-The `cmd` array is where we can input shell commands, we can specify the Docker `image` used, environment variables can be set using the `env` map, the GPU can be enable by setting the `gpu` value to true.
+The `cmd` array is where we can input shell commands. We can specify the Docker `image` to use, provide environment variables using the `env` map, and utilize the node's GPU by setting the `gpu` value to true.
 Read below for a full list of all of the properties you can set.
 
 ```json
@@ -81,22 +81,22 @@ Read below for a full list of all of the properties you can set.
 
 ## Job Schema Specification
 
-Below we can see a list of the properties and a description for each property that can be set in a Nosana Jofor each property that can be set in a Nosana Job.
+Below is a list of the properties that can be set on a Nosana Job:
 
 - **`version`**: Specifies Nosana compiler version.
-- **`type`**: Indicates the type of job. Here, it's set to "container", meaning the job will run inside a Docker container.
+- **`type`**: Indicates the type of job. Above it's set to `"container"`, meaning the job will run inside a Docker container.
 - **`meta` (optional)**:
-    - **`trigger`**: Defines how the job is triggered. In this example, it's set to "cli" (command-line interface).
-- **`global` (optional)**: This a is a property to help define the properties of all of the operations defined in `ops`.
+    - **`trigger`**: Defines how the job is triggered. In this example, it's set to `"cli"` (command-line interface).
+- **`global` (optional)**: This is a property to help define the properties of all of the operations defined in `ops`.
     - **`image`**: The Docker image to be used for the container.
     - **`gpu`**: A boolean indicating whether GPU resources are required.
-    - **`entrypoint`**: An entry point in a container is a script or executable that specifies the command to be run when the container starts
-    - **`env`**: Key value map for environment variables in the container.
+    - **`entrypoint`**: An entrypoint in a container is a script or executable that specifies the command to be run when the container starts
+    - **`env`**: Key-value map for environment variables in the container.
     - **`work_dir`**: The working directory that will be selected for running commands.
 
 - **`ops`**: An array of operations that the job will perform. Each operation includes:
-    - **`type`**: Specifies the operation type. For instance, "container/run" indicates a containerized operation.
-    - **`id`**: A unique identifier for the operation. Examples include "gpu-stats" and "run-whisper".
+    - **`type`**: Specifies the operation type. For instance, `"container/run"` indicates a containerized operation.
+    - **`id`**: A unique identifier for the operation. Examples include `"gpu-stats"` and `"run-whisper"`.
     - **`results`**(optional):
             - **`regex`**: Regex for parsing the result.
             - **`logType`**: The type of log for the result.
@@ -107,11 +107,11 @@ Below we can see a list of the properties and a description for each property th
         - **`expose` (optional)**: A number representing an application port that needs to be exposed via the Nosana Service Endpoint.
         - **`gpu` (optional)**: A boolean indicating whether GPU resources are required.
         - **`work_dir` (optional)**: The working directory that will be selected for running commands.
-        - **`output` (optional)**: Specify the output
-        - **`entrypoint` (optional)**: An entry point in a container is a script or executable that specifies the command to be run when the container starts
-        - **`env` (optional)**: Key value map for environment variables in the container.
+        - **`output` (optional)**: Specify the output.
+        - **`entrypoint` (optional)**: An entrypoint in a container is a script or executable that specifies the command to be run when the container starts.
+        - **`env` (optional)**: Key-value map for environment variables in the container.
         - **`resources` (optional)**: An array containing assets needed for inference.
-          - **`type`**: String representing where the asset should be retrieved from, S3, HF (HuggingFace) or IPFS.
+          - **`type`**: String representing where the asset should be retrieved from: `S3`, `HF` (HuggingFace) or `IPFS`.
           - **`url`**: URL representing where the asset is located.
           - **`target`**: Location where the asset should be downloaded to.
 
@@ -122,21 +122,21 @@ If you are familiar with how to use the `cmd` property in Docker, you should alr
 
 There are two primary ways of using the `cmd` array.
 
-1. String based CMD
-2. Array based CMD
+1. String-based CMD
+2. Array-based CMD
 
-### String based CMD
+### String-based CMD
 
 When the first element of the array is the whole command, such as:
 `"gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app"`
 Bash will be used as the shell to interpret this command.
 
-### Array based CMD
+### Array-based CMD
 
 Another option is to put each command and every flag as it's own element in an array:
 `["/bin/sh", "-c", gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "main:app"]`
 
-With the array based notation, we are able to specify the shell we want to use.
+Using array-based notation, we are able to specify the shell we want to use.
 Note that most often you will need to append `-c` flag after `/bin/sh`
 
 You can read more about how to use the `cmd` property by going to the [Docker Documentation](https://docs.docker.com/reference/dockerfile/#cmd).
