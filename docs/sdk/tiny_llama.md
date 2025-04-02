@@ -50,7 +50,7 @@ Nosana balance: ${(await nosana.solana.getNosBalance())?.amount.toString()} NOS
 // Upload Nosana job definition to IPFS
 const ipfsHash = await nosana.ipfs.pin(json_flow);
 
-// Markets can be found at https://explorer.nosana.io/markets
+// Markets can be found at https://dashboard.nosana.com/markets
 const market = new PublicKey('97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf')
 
 // Post job with IPFS hash to market
@@ -60,9 +60,9 @@ const response = await nosana.jobs.list(ipfsHash, market);
 console.log(`
 Job posted!
 IPFS uploaded: ${nosana.ipfs.config.gateway + ipfsHash}
-Posted to market: https://explorer.nosana.io/markets/${market.toBase58()}
+Posted to market: https://dashboard.nosana.com/markets/${market.toBase58()}
 Service URL: https://${response.job}.node.k8s.prd.nos.ci
-Nosana Explorer: https://explorer.nosana.io/jobs/${response.job}
+Nosana Explorer: https://dashboard.nosana.com/jobs/${response.job}
 `)
 
 let job: Job = await nosana.jobs.get(response.job);

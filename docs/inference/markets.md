@@ -5,7 +5,7 @@ Nosana offers a variety of GPU markets tailored to different needs. Below is a c
 - **Market Name**: Type of NVIDIA GPU available.
 - **Address of Market**: Address to use with the `--market` flag in the `nosana job post` command.
 
-For real-time updates on prices, job timeouts, queue lengths, and more, visit the [Nosana explorer](https://explorer.nosana.io/markets).
+For real-time updates on prices, job timeouts, queue lengths, and more, visit the [Nosana explorer](https://dashboard.nosana.com/markets).
 
 ## CLI commands
 
@@ -118,19 +118,19 @@ nosana job post --market nvidia-3060
 
 | Market Name         |  Address | Description |
 |---------------------|----------|-------------|
-| [Market Enterprise](https://explorer.nosana.io/markets/3XGECQon74HQwPJuZjgCwqdQ5Nt3wktZ9fcavcDN9qB2)   |   3XGECQon74HQwPJuZjgCwqdQ5Nt3wktZ9fcavcDN9qB2   | High-performance GPUs for enterprise-level tasks. |
-| [Market 4070](https://explorer.nosana.io/markets/EzuHhkrhmV98HWzREsgLenKj2iHdJgrKmzfL8psP8Aso)         |   EzuHhkrhmV98HWzREsgLenKj2iHdJgrKmzfL8psP8Aso   | Mid-range GPUs suitable for gaming and development. |
-| [Market Laptop](https://explorer.nosana.io/markets/3EWVbggirRpDY2npzPDA7k21yzwz5wgwGxVVv6zCnRpa)       |   3EWVbggirRpDY2npzPDA7k21yzwz5wgwGxVVv6zCnRpa   | GPUs optimized for laptop use, balancing power and efficiency. |
-| [Market A100](https://explorer.nosana.io/markets/GLJHzqRN9fKGBsvsFzmGnaQGknUtLN1dqaFR8n3YdM22)         |   GLJHzqRN9fKGBsvsFzmGnaQGknUtLN1dqaFR8n3YdM22   | High-end GPUs for AI and deep learning applications. |
-| [Market 3060](https://explorer.nosana.io/markets/7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq)         |   7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq   | Budget-friendly GPUs for casual use and entry-level gaming. |
-| [Market 4000/A4000](https://explorer.nosana.io/markets/7fnuvPYzfd961iRDPRgMSKLrUf1QjTGnn7viu3P12Zuc)   |   7fnuvPYzfd961iRDPRgMSKLrUf1QjTGnn7viu3P12Zuc   | Versatile GPUs suitable for a wide range of tasks. |
-| [Market 3080](https://explorer.nosana.io/markets/7RepDm4Xt9k6qV5oiSHvi8oBoty4Q2tfBGnCYjFLj6vA)         |   7RepDm4Xt9k6qV5oiSHvi8oBoty4Q2tfBGnCYjFLj6vA   | High-performance gaming GPUs. |
-| [Market A40](https://explorer.nosana.io/markets/BLqSzPzcXMX5gseNXE4Ma45f31Eo6tNFVYoRmPG7kxP2)          |   BLqSzPzcXMX5gseNXE4Ma45f31Eo6tNFVYoRmPG7kxP2   | Professional-grade GPUs for rendering and simulations. |
-| [Market 4080](https://explorer.nosana.io/markets/77wdaAuYVxBW5u2QiqddkAzoBZ5cuKxH9ZCbx5HfFUb2)         |   77wdaAuYVxBW5u2QiqddkAzoBZ5cuKxH9ZCbx5HfFUb2   | Next-gen GPUs for high-end gaming and development. |
-| [Market 6000/A6000](https://explorer.nosana.io/markets/EjryZ6XEthz3z7nnLfjXBYafyn7VyHgChfbfM47LfAao)   |   EjryZ6XEthz3z7nnLfjXBYafyn7VyHgChfbfM47LfAao   | Top-tier GPUs for intensive workloads and simulations. |
-| [Market H100](https://explorer.nosana.io/markets/Crop49jpc7prcgAcS82WbWyGHwbN5GgDym3uFbxxCTZg)         |   Crop49jpc7prcgAcS82WbWyGHwbN5GgDym3uFbxxCTZg   | Cutting-edge GPUs for AI and machine learning. |
-| [Market 4060](https://explorer.nosana.io/markets/47LQHZwT7gfVoBDYnRYhsYv6vKk8a1oW3Y3SdHAp1gTr)         |   47LQHZwT7gfVoBDYnRYhsYv6vKk8a1oW3Y3SdHAp1gTr   | Affordable GPUs with good performance for budget builds. |
-| [Market 4090](https://explorer.nosana.io/markets/97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf)         |   97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf   | Top-of-the-line GPUs for the ultimate gaming experience. |
-| [Market 3090](https://explorer.nosana.io/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ)         |   CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ   | High-performance GPUs for gaming and professional tasks. |
-| [Market 3070](https://explorer.nosana.io/markets/RXP7JK8MTY4uPJng4UjC9ZJdDDSG6wGr8pvVf3mwgXF)          |   RXP7JK8MTY4uPJng4UjC9ZJdDDSG6wGr8pvVf3mwgXF    | GPUs offering a good balance of performance and cost. |
-| [Market A5000](https://explorer.nosana.io/markets/4uBye3vJ1FAYukDdrvqQ36MZZZxqW3o8utWu8fyomRuN)        |   4uBye3vJ1FAYukDdrvqQ36MZZZxqW3o8utWu8fyomRuN   | High-performance GPUs for professional workloads. |
+| [Market Enterprise](https://dashboard.nosana.com/markets/3XGECQon74HQwPJuZjgCwqdQ5Nt3wktZ9fcavcDN9qB2)   |   3XGECQon74HQwPJuZjgCwqdQ5Nt3wktZ9fcavcDN9qB2   | High-performance GPUs for enterprise-level tasks. |
+| [Market 4070](https://dashboard.nosana.com/markets/EzuHhkrhmV98HWzREsgLenKj2iHdJgrKmzfL8psP8Aso)         |   EzuHhkrhmV98HWzREsgLenKj2iHdJgrKmzfL8psP8Aso   | Mid-range GPUs suitable for gaming and development. |
+| [Market Laptop](https://dashboard.nosana.com/markets/3EWVbggirRpDY2npzPDA7k21yzwz5wgwGxVVv6zCnRpa)       |   3EWVbggirRpDY2npzPDA7k21yzwz5wgwGxVVv6zCnRpa   | GPUs optimized for laptop use, balancing power and efficiency. |
+| [Market A100](https://dashboard.nosana.com/markets/GLJHzqRN9fKGBsvsFzmGnaQGknUtLN1dqaFR8n3YdM22)         |   GLJHzqRN9fKGBsvsFzmGnaQGknUtLN1dqaFR8n3YdM22   | High-end GPUs for AI and deep learning applications. |
+| [Market 3060](https://dashboard.nosana.com/markets/7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq)         |   7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq   | Budget-friendly GPUs for casual use and entry-level gaming. |
+| [Market 4000/A4000](https://dashboard.nosana.com/markets/7fnuvPYzfd961iRDPRgMSKLrUf1QjTGnn7viu3P12Zuc)   |   7fnuvPYzfd961iRDPRgMSKLrUf1QjTGnn7viu3P12Zuc   | Versatile GPUs suitable for a wide range of tasks. |
+| [Market 3080](https://dashboard.nosana.com/markets/7RepDm4Xt9k6qV5oiSHvi8oBoty4Q2tfBGnCYjFLj6vA)         |   7RepDm4Xt9k6qV5oiSHvi8oBoty4Q2tfBGnCYjFLj6vA   | High-performance gaming GPUs. |
+| [Market A40](https://dashboard.nosana.com/markets/BLqSzPzcXMX5gseNXE4Ma45f31Eo6tNFVYoRmPG7kxP2)          |   BLqSzPzcXMX5gseNXE4Ma45f31Eo6tNFVYoRmPG7kxP2   | Professional-grade GPUs for rendering and simulations. |
+| [Market 4080](https://dashboard.nosana.com/markets/77wdaAuYVxBW5u2QiqddkAzoBZ5cuKxH9ZCbx5HfFUb2)         |   77wdaAuYVxBW5u2QiqddkAzoBZ5cuKxH9ZCbx5HfFUb2   | Next-gen GPUs for high-end gaming and development. |
+| [Market 6000/A6000](https://dashboard.nosana.com/markets/EjryZ6XEthz3z7nnLfjXBYafyn7VyHgChfbfM47LfAao)   |   EjryZ6XEthz3z7nnLfjXBYafyn7VyHgChfbfM47LfAao   | Top-tier GPUs for intensive workloads and simulations. |
+| [Market H100](https://dashboard.nosana.com/markets/Crop49jpc7prcgAcS82WbWyGHwbN5GgDym3uFbxxCTZg)         |   Crop49jpc7prcgAcS82WbWyGHwbN5GgDym3uFbxxCTZg   | Cutting-edge GPUs for AI and machine learning. |
+| [Market 4060](https://dashboard.nosana.com/markets/47LQHZwT7gfVoBDYnRYhsYv6vKk8a1oW3Y3SdHAp1gTr)         |   47LQHZwT7gfVoBDYnRYhsYv6vKk8a1oW3Y3SdHAp1gTr   | Affordable GPUs with good performance for budget builds. |
+| [Market 4090](https://dashboard.nosana.com/markets/97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf)         |   97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf   | Top-of-the-line GPUs for the ultimate gaming experience. |
+| [Market 3090](https://dashboard.nosana.com/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ)         |   CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ   | High-performance GPUs for gaming and professional tasks. |
+| [Market 3070](https://dashboard.nosana.com/markets/RXP7JK8MTY4uPJng4UjC9ZJdDDSG6wGr8pvVf3mwgXF)          |   RXP7JK8MTY4uPJng4UjC9ZJdDDSG6wGr8pvVf3mwgXF    | GPUs offering a good balance of performance and cost. |
+| [Market A5000](https://dashboard.nosana.com/markets/4uBye3vJ1FAYukDdrvqQ36MZZZxqW3o8utWu8fyomRuN)        |   4uBye3vJ1FAYukDdrvqQ36MZZZxqW3o8utWu8fyomRuN   | High-performance GPUs for professional workloads. |

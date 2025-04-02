@@ -33,9 +33,9 @@ The Nosana Job schema allows us to create a job definition and specify the param
 
 ## Markets
 
-Markets on Nosana are clustered based on specific NVIDIA GPU models, ranging from the 3060s and A40s to 4090s. You can see the different markets available at the following link: <https://explorer.nosana.io/markets>
+Markets on Nosana are clustered based on specific NVIDIA GPU models, ranging from the 3060s and A40s to 4090s. You can see the different markets available at the following link: <https://dashboard.nosana.com/markets>
 
-We will use the following market: [Link To Market](https://explorer.nosana.io/markets/RXP7JK8MTY4uPJng4UjC9ZJdDDSG6wGr8pvVf3mwgXF). This market has compute with NVIDIA RTX 4090 GPUs, which are well-suited for a variety of AI applications, including AI inferencing. It may not be the cheapest market, but at the time of writing, it has the most GPUs. You can always choose another market that better accommodates your needs.
+We will use the following market: [Link To Market](https://dashboard.nosana.com/markets/RXP7JK8MTY4uPJng4UjC9ZJdDDSG6wGr8pvVf3mwgXF). This market has compute with NVIDIA RTX 4090 GPUs, which are well-suited for a variety of AI applications, including AI inferencing. It may not be the cheapest market, but at the time of writing, it has the most GPUs. You can always choose another market that better accommodates your needs.
 
 ## Posting the Job
 
@@ -73,9 +73,9 @@ ipfs uploaded:	https://nosana.mypinata.cloud/ipfs/QmVfCSRc7LmVUJQbJKJuvj9k61wsrD
 posting job to market CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ for price 0.00009 NOS/s (total: 0.6480 NOS)
 job posted with tx 3czE7QrbTnVPSWyAcuHDvj6TCLPG6xYNwWNab6Hs8PkW3RpNozhw8r1tLgNzSnNJJZeVBi3jVwHTFWgHW7Q8HSmw!
 Service will be exposed at https://GTrY9X8AEHGHyCDS2py1sm4xQNUMkB5Zjy58sVYCTJ9t.node.k8s.prd.nos.ci
-Job:		https://explorer.nosana.io/jobs/3brMatsFV2uNaY9VDMKdC3jmpBvq1GQs1o9nvddQqKoQ
+Job:		https://dashboard.nosana.com/jobs/3brMatsFV2uNaY9VDMKdC3jmpBvq1GQs1o9nvddQqKoQ
 JSON flow:	https://nosana.mypinata.cloud/ipfs/QmVfCSRc7LmVUJQbJKJuvj9k61wsrDFUyfbv9pzntFoC1G
-Market:		https://explorer.nosana.io/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ
+Market:		https://dashboard.nosana.com/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ
 Price:		0.00009 NOS/s
 Status:		RUNNING
 ⠙ Waiting for job to complete
@@ -87,7 +87,7 @@ After a few seconds, you can see that the `Status` has changed to `COMPLETED` wi
 
 -- Redacted
 
-Node:		https://explorer.nosana.io/nodes/7WcQdNdReaz2FMMRrthxrELjfGtXwbKZXuDZUoha2Eis
+Node:		https://dashboard.nosana.com/nodes/7WcQdNdReaz2FMMRrthxrELjfGtXwbKZXuDZUoha2Eis
 Start Time:	Thu Jul 18 2024 09:29:28 GMT-0400 (Atlantic Standard Time)
 Duration:	12 seconds
 Total Costs:	0.00108 NOS
