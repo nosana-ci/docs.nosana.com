@@ -63,9 +63,9 @@ Once you have NOS/SOL, send some to the address logged from the `nosana address`
 
 Once your wallet is loaded with some SOL and NOS, you can post jobs to the Nosana Network.
 
-First, we need to determine which market to post our job in. Navigate to [Nosana Explorer Markets](https://explorer.nosana.io/markets) to see a list of available markets. Each market has certain parameters, such as NOS per second, type of GPU used, available nodes, etc.
+First, we need to determine which market to post our job in. Navigate to [Nosana Explorer Markets](https://dashboard.nosana.com/markets) to see a list of available markets. Each market has certain parameters, such as NOS per second, type of GPU used, available nodes, etc.
 
-For this first test, we will use the cheapest option, which at the time of writing is [Market 3060](https://explorer.nosana.io/markets/7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq). Copy the market address, `7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq`, and use it in the `nosana job post` command.
+For this first test, we will use the cheapest option, which at the time of writing is [Market 3060](https://dashboard.nosana.com/markets/7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq). Copy the market address, `7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq`, and use it in the `nosana job post` command.
 
 The following parameters will be added to the command:
 
@@ -96,12 +96,12 @@ ipfs uploaded:  https://nosana.mypinata.cloud/ipfs/QmRm643NbpakeumLbXuuXJoHNpnz7
 posting job to market EzuHhkrhmV98HWzREsgLenKj2iHdJgrKmzfL8psP8Aso for price 0.000035 NOS/s (total: 0.2520 NOS)
 job posted with tx 2r75ajjHdr5mPZV85NjFxtY28tKYK3UvNtdD7W7TfYCKvCXGgEdgJsia3jWdWaz5VES5sZWipEabnjwQkoE1dcwf!
 Service will be exposed at https://F5yVhYmrWKVLNwkGnLgBtfXEkE5CygKqV7BTWzDziZUa.node.k8s.prd.nos.ci
-Job:            https://explorer.nosana.io/jobs/FQTP2F5hNP2rNGUtQm4Annrx462PgxPcSA6ND6ToPTxH
+Job:            https://dashboard.nosana.com/jobs/FQTP2F5hNP2rNGUtQm4Annrx462PgxPcSA6ND6ToPTxH
 JSON flow:      https://nosana.mypinata.cloud/ipfs/QmRm643NbpakeumLbXuuXJoHNpnz74MghhWtFNJNq9kN7W
-Market:         https://explorer.nosana.io/markets/EzuHhkrhmV98HWzREsgLenKj2iHdJgrKmzfL8psP8Aso
+Market:         https://dashboard.nosana.com/markets/EzuHhkrhmV98HWzREsgLenKj2iHdJgrKmzfL8psP8Aso
 Price:          0.000035 NOS/s
 Status:         RUNNING
-Node:           https://explorer.nosana.io/nodes/HWAbUKhTSEXKarqXAjFB9EmaszsoB7dGEC7Gjxf7vNfk
+Node:           https://dashboard.nosana.com/nodes/HWAbUKhTSEXKarqXAjFB9EmaszsoB7dGEC7Gjxf7vNfk
 Start Time:     Wed Jul 17 2024 07:15:47 GMT-0400 (Atlantic Standard Time)
 Duration:       10 seconds
 Total Costs:    0.00035 NOS
@@ -118,7 +118,7 @@ Exited with status success with code 0
 ## Get Job from Job ID
 
 Retrieving the results from the CLI is also possible. Use the job ID to retrieve the data, which can be found in the job URL posted above:
-<https://explorer.nosana.io/jobs/FQTP2F5hNP2rNGUtQm4Annrx462PgxPcSA6ND6ToPTxH>.
+<https://dashboard.nosana.com/jobs/FQTP2F5hNP2rNGUtQm4Annrx462PgxPcSA6ND6ToPTxH>.
 
 Run the following command to get the result of the job:
 

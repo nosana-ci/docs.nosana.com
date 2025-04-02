@@ -156,7 +156,7 @@ console.log(`IPFS uploaded: ${nosana.ipfs.config.gateway}ipfsHash`);
 ## Posting and Monitoring a Job
 
 This posts the job using the `jobs.list()` method, which takes the IPFS hash of the workflow and a Nosana market address.
-Markets can be found at the [Nosana Explorer](https://explorer.nosana.io/markets).
+Markets can be found at the [Nosana Explorer](https://dashboard.nosana.com/markets).
 The response contains details of the posted job, such as the job address and transaction_id.
 Posting the job means it will be posted to the Solana blockchain, and processed by the Nosana smart contract.
 When this happens, a Nosana Node that is waiting in the queue, monitoring the blockchain for new jobs, will claim it and run it.
@@ -168,8 +168,8 @@ const market = new PublicKey('97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf')
 const response = await nosana.jobs.list(ipfsHash, market);
 
 console.log(`
-Posted to market: https://explorer.nosana.io/markets/${market.toBase58()}
-Nosana Explorer: https://explorer.nosana.io/jobs/${response.job}
+Posted to market: https://dashboard.nosana.com/markets/${market.toBase58()}
+Nosana Explorer: https://dashboard.nosana.com/jobs/${response.job}
 `)
 ```
 
