@@ -18,7 +18,7 @@ Ensure you're installing Ubuntu 22.04 on WSL2. Unfortunately, Ubuntu 20.04 is no
 
 :::
 
-For detailed instructions on how to install WSL and run Ubuntu 22.04, follow the tutorial linked below:
+For detailed instructions on how to install WSL2 and run Ubuntu 22.04, follow the tutorial linked below:
 
 [How to Install Ubuntu on WSL2](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview)
 
@@ -30,6 +30,30 @@ lsb_release -a
 
 Please confirm that you have installed version **22.04**.
 
+### WSL2 Config
+
+WSL2 only allocates half of the system RAM. So it's common for a 32GB PC to run a node then the operator is surprised their jobs fail since their node only had 16GB when they run with something like a 24GB RTX 4090.
+
+Simple way to increase available RAMs for node on windows:
+
+1. Shut down WSL2.
+2. Open File Explorer, navigate to `C:\Users\YourWindowsUsername`.
+3. Create `".wslconfig"` (use Notepad, ensure no `.txt` extension, Save As as All files. I named with " " it helps for windows not to add `.txt` extension):
+4. Copy the following text into file:
+
+```txt
+[wsl2]
+memory=58GB     # Adjust to ~90% of your total RAM (e.g., 58GB for 64GB system)
+processors=16   # Match your CPU cores (e.g., 16 for an 16-core CPU)
+swap=16GB       # Extra swap for memory overflow, once it runs out of RAM memory it borrows from SSD
+```
+
+5. Save file and Restart WSL2. Check available storage with:
+
+```sh
+free -h
+```
+
 ## Docker
 
 To ensure a successful setup, follow these steps to install and configure Docker:
@@ -37,7 +61,6 @@ To ensure a successful setup, follow these steps to install and configure Docker
 1. Install Docker Desktop with the WSL2 backend by visiting this link: [Install Docker Desktop with WSL2 backend](https://docs.docker.com/desktop/install/windows-install/).
 
 2. After installation, make sure Docker is added to its own user group.
-
 
 ## NVIDIA
 
@@ -77,12 +100,12 @@ If the drivers are correctly installed, you should see detailed information abou
 +-----------------------------------------------------------------------------+
 ```
 
-
 These commands will help you generate the necessary configuration file and verify the CDI support.
 
 ### Install the NVIDIA Container Toolkit
 
 To install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) (`nvidia-ctk`), run the following commands:
+
 ```sh:no-line-numbers
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
   && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
@@ -91,14 +114,16 @@ curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dear
   && \
     sudo apt-get update
 ```
+
 Then we can install the NVIDIA Container Toolkit package:
+
 ```sh:no-line-numbers
 sudo apt-get install -y nvidia-container-toolkit
 ```
 
 #### Configure the NVIDIA Container Toolkit
 
-For configuring the NVIDIA Container Toolkit to run Podman v4 natively on WSL2 (as Podman in Docker is not supported on WSL2), please follow the instructions for CDI configuration. You can find these instructions at https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html.
+For configuring the NVIDIA Container Toolkit to run Podman v4 natively on WSL2 (as Podman in Docker is not supported on WSL2), please follow the instructions for CDI configuration. You can find these instructions at <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html>.
 
 Once you have completed the configuration, run the following commands:
 
@@ -128,7 +153,7 @@ podman --version
 podman run --rm --device nvidia.com/gpu=all --security-opt=label=disable ubuntu nvidia-smi -L
 ```
 
-If this doesn't work, make sure you have the NVIDIA drivers installed and the nvidia-ctk [installed](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) and [configured](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html)
+If this doesn't work, make sure you have the NVIDIA drivers installed and the `nvidia-ctk` [installed](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) and [configured](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html)
 
 If you see `Error: container create failed (no logs from conmon)...` when running the command, follow the steps [here](/nodes/troubleshoot.html#podman) to resolve issue
 
@@ -155,13 +180,12 @@ You will see your node's information displayed in the following format.
 
 Reading keypair from ~/.nosana/nosana_key.json
 
-Network:	    mainnet
-Wallet:		    <NODE_ADDRESS>
-SOL balance:	0E-9 SOL
-NOS balance:	0 NOS
-Provider:	    podman
+Network:     mainnet
+Wallet:      <NODE_ADDRESS>
+SOL balance: 0E-9 SOL
+NOS balance: 0 NOS
+Provider:     podman
 ```
-
 
 ### Nosana Grid Registration Instructions
 
@@ -193,8 +217,9 @@ curl http://localhost:8080/v4.5.0/libpod/info
 ## Launching the GPU Hosts with Custom Parameters
 
 You can manually launch the GPU Hosts to modify certain parameters:
-* Use the `--podman` parameter to direct to your Podman service if it's running elsewhere.
-* Use `--volume` to map your solana key to `/root/.nosana/nosana_key.json` within the Docker container if you wish to use your own key.
+
+- Use the `--podman` parameter to direct to your Podman service if it's running elsewhere.
+- Use `--volume` to map your Solana key to `/root/.nosana/nosana_key.json` within the Docker container if you wish to use your own key.
 
 ```sh:no-line-numbers
 docker run \
@@ -208,4 +233,5 @@ docker run \
 ```
 
 ## Troubleshoot
+
 If you have questions or when you have error messages, please take a look at our [Troubleshoot Guide](/nodes/troubleshoot) or join our [Discord](https://discord.gg/nosana-ai) for help.

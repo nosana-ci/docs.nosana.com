@@ -9,9 +9,12 @@ The Nosana Network connects GPU Hosts with Clients who need scalable, cost-effec
 GPU Hosts run the Nosana Node software, which connects your hardware to the marketplace. To register your device, it must include a compatible NVIDIA GPU.
 
 ::: warning
-
 We recommend running the Nosana Node software in a virtual environment and using a Solana wallet with only a minimal amount of SOL.
+:::
 
+::: info
+For clarity we would also like to inform you that Nosana supports
+**1 private key per GPU, 1 GPU per PC**
 :::
 
 ## Hardware Requirements
@@ -19,16 +22,18 @@ We recommend running the Nosana Node software in a virtual environment and using
 To participate as a GPU Host, ensure your setup meets the following criteria:
 
 - **RAM**: 12GB+
-- **Storage**: 256GB+ SSD
+- **Storage**: 256GB+ NVMe (SSD)
 
   Large language models storage requirements can be high, especially models geared towards higher end GPU’s. It is recommended that ancillary storage up to 1TB be provided for your host to handle client model requirements.
+
 - **Bandwidth**: Minimum 100 Mb/s download, 50 Mb/s upload.
 
   High speed internet speed is required. To increase your chances of your host being hired by a client, we recommend 500 Mb/s download, 250 Mb/s upload, with ping below 100ms.
+
 - **Supported NVIDIA GPUs**:
 
 | Brand  | Model         |
-|--------|---------------|
+| ------ | ------------- |
 | NVIDIA | RTX 4090      |
 | NVIDIA | RTX 4080      |
 | NVIDIA | RTX 4070Ti    |
