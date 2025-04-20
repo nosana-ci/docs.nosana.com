@@ -26,6 +26,7 @@ export default [
       'markets',
       'cached_resources',
       'confidential',
+      'multi_service',
       {
         text: 'Examples',
         prefix: '/inference/examples/',
