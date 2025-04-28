@@ -24,6 +24,7 @@ export default [
       'endpoints',
       'writing_a_job',
       'markets',
+      'loading_resources',
       'cached_resources',
       'confidential',
       'multi_service',
