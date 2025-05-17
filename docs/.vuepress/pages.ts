@@ -25,9 +25,11 @@ export default [
       'writing_a_job',
       'markets',
       'loading_resources',
+      's3_resources',
       'cached_resources',
       'confidential',
       'multi_service',
+      'healthchecks',
       {
         text: 'Examples',
         prefix: '/inference/examples/',
@@ -53,6 +55,14 @@ export default [
     prefix: '/sdk/',
     collapsible: true,
     children: ['sdk_start', 'hello_world', 'tiny_llama', 'jupyter'],
+  },
+
+  {
+    text: 'Wallet',
+    icon: 'wallet',
+    prefix: '/wallet/',
+    collapsible: true,
+    children: ['token', 'key'],
   },
   {
     text: 'Tutorial',
