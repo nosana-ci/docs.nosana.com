@@ -23,6 +23,7 @@ export default [
       'job_schema',
       'endpoints',
       'writing_a_job',
+      'job_reference',
       'markets',
       'loading_resources',
       's3_resources',

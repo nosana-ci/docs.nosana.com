@@ -1,4 +1,4 @@
-# Confidential Jobs on Nosana
+# Confidential Jobs
 
 Nosana supports running confidential jobs, providing mechanisms to securely execute jobs without exposing sensitive data or credentials publicly.
 

@@ -1,10 +1,11 @@
-# Job Schema
+# Job Definition
 
 The Nosana Job schema allows us to create a job definition and specify the parameters needed for our job. In this case, we will be posting a job to prompt a [TinyLlama](https://github.com/jzhang38/TinyLlama) instance to create a story about "Tony the tiny hawk." There are other features, such as specifying the running environment and triggers, but for now, we will only focus on the `ops.args` object of our schema definition.
 
 ## Define Job Schema
 
 1. **Create a JSON file:**
+
    - Name the file `story.json` and add the following content to define a job schema for running an AI inference task using the [TinyLlama Model](https://github.com/jzhang38/TinyLlama).
 
 2. **Explanation:**
@@ -65,19 +66,19 @@ Now you should be able to see the job running on our network in the `Status` fie
 
 Reading keypair from /home/user/.nosana/nosana_key.json
 
-Network:	mainnet
-Wallet:		4WtG17Vn3SSoTAVvXxpopQTG3Qo9NUK28Zotv4rL1ccv
-SOL balance:	0.04303304 SOL
-NOS balance:	5.520211 NOS
-ipfs uploaded:	https://nosana.mypinata.cloud/ipfs/QmVfCSRc7LmVUJQbJKJuvj9k61wsrDFUyfbv9pzntFoC1G
+Network: mainnet
+Wallet:  4WtG17Vn3SSoTAVvXxpopQTG3Qo9NUK28Zotv4rL1ccv
+SOL balance: 0.04303304 SOL
+NOS balance: 5.520211 NOS
+ipfs uploaded: https://nosana.mypinata.cloud/ipfs/QmVfCSRc7LmVUJQbJKJuvj9k61wsrDFUyfbv9pzntFoC1G
 posting job to market CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ for price 0.00009 NOS/s (total: 0.6480 NOS)
 job posted with tx 3czE7QrbTnVPSWyAcuHDvj6TCLPG6xYNwWNab6Hs8PkW3RpNozhw8r1tLgNzSnNJJZeVBi3jVwHTFWgHW7Q8HSmw!
 Service will be exposed at https://GTrY9X8AEHGHyCDS2py1sm4xQNUMkB5Zjy58sVYCTJ9t.node.k8s.prd.nos.ci
-Job:		https://dashboard.nosana.com/jobs/3brMatsFV2uNaY9VDMKdC3jmpBvq1GQs1o9nvddQqKoQ
-JSON flow:	https://nosana.mypinata.cloud/ipfs/QmVfCSRc7LmVUJQbJKJuvj9k61wsrDFUyfbv9pzntFoC1G
-Market:		https://dashboard.nosana.com/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ
-Price:		0.00009 NOS/s
-Status:		RUNNING
+Job:  https://dashboard.nosana.com/jobs/3brMatsFV2uNaY9VDMKdC3jmpBvq1GQs1o9nvddQqKoQ
+JSON flow: https://nosana.mypinata.cloud/ipfs/QmVfCSRc7LmVUJQbJKJuvj9k61wsrDFUyfbv9pzntFoC1G
+Market:  https://dashboard.nosana.com/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ
+Price:  0.00009 NOS/s
+Status:  RUNNING
 ⠙ Waiting for job to complete
 ```
 
@@ -87,12 +88,12 @@ After a few seconds, you can see that the `Status` has changed to `COMPLETED` wi
 
 -- Redacted
 
-Node:		https://dashboard.nosana.com/nodes/7WcQdNdReaz2FMMRrthxrELjfGtXwbKZXuDZUoha2Eis
-Start Time:	Thu Jul 18 2024 09:29:28 GMT-0400 (Atlantic Standard Time)
-Duration:	12 seconds
-Total Costs:	0.00108 NOS
-Status:		COMPLETED
-Result:		https://nosana.mypinata.cloud/ipfs/QmUpv6jQmMjiJKYaozcLZvUcujkiWg8L3RWkvmX42xdYL7
+Node:  https://dashboard.nosana.com/nodes/7WcQdNdReaz2FMMRrthxrELjfGtXwbKZXuDZUoha2Eis
+Start Time: Thu Jul 18 2024 09:29:28 GMT-0400 (Atlantic Standard Time)
+Duration: 12 seconds
+Total Costs: 0.00108 NOS
+Status:  COMPLETED
+Result:  https://nosana.mypinata.cloud/ipfs/QmUpv6jQmMjiJKYaozcLZvUcujkiWg8L3RWkvmX42xdYL7
 Logs:
 
 - Executed step ollama in 4.965s
