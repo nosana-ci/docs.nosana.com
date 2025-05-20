@@ -1,4 +1,4 @@
-# S3 Resources in Nosana
+# S3 Resources
 
 Loading external model files or datasets into your Nosana deployment is often as simple as pointing to an S3‑compatible bucket (AWS S3, Cloudflare R2, MinIO, etc.). Nosana fetches any declared resources **before** the job starts, so your data is already available when the container’s `cmd` runs.
 

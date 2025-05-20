@@ -24,41 +24,45 @@ To begin, install the Nosana SDK to the folder, using NPM or your favorite JS ru
 :::: tabs
 @tab npm
 [Node.JS](https://nodejs.org/en)
+
 ```sh:no-line-numbers
 npm install @nosana/sdk
 ```
 
 @tab Yarn
 [Yarn](https://yarnpkg.com/)
+
 ```sh:no-line-numbers
 yarn install @nosana/sdk
 ```
 
 @tab pnpm
 [pnpm](https://pnpm.io/)
+
 ```sh:no-line-numbers
 pnpm install @nosana/sdk
 ```
 
 @tab Bun
 [Bun](https://bun.sh/)
+
 ```sh:no-line-numbers
 bun install @nosana/sdk
 ```
-::::
 
+::::
 
 ## Imports and Initial Setup
 
 ```ts
 import { PublicKey } from '@solana/web3.js';
-import { Client, Job, sleep } from '@nosana/sdk'
+import { Client, Job, sleep } from '@nosana/sdk';
 ```
 
 - The script imports several packages:
- - `import { Client, }` is the Nosana client that enables interaction with the Solana blockchain and Nosana APIs.
- - `sleep` from `../src/utils` is a helper function to pause execution for a specified time (used to periodically check job status).
- - `PublicKey` from `@solana/web3.js` handles Solana public keys.
+- `import { Client, }` is the Nosana client that enables interaction with the Solana blockchain and Nosana APIs.
+- `sleep` from `../src/utils` is a helper function to pause execution for a specified time (used to periodically check job status).
+- `PublicKey` from `@solana/web3.js` handles Solana public keys.
 - The `nosana` client instance is initialized with the `mainnet` network configuration. It is also possible to specify `devnet` as the network.
 
 This guide assumes you already have a wallet with funds on it.
@@ -85,7 +89,7 @@ It is also possible to retrieve the balance of SOL and NOS for this account.
 ```typescript
 console.log(`
 Connected with wallet: ${nosana.solana.wallet.publicKey.toString()}
-Solana balance: ${(await nosana.solana.getSolBalance())} SOL
+Solana balance: ${await nosana.solana.getSolBalance()} SOL
 Nosana balance: ${(await nosana.solana.getNosBalance())?.amount.toString()} NOS
 `);
 ```
@@ -95,45 +99,24 @@ Nosana balance: ${(await nosana.solana.getNosBalance())?.amount.toString()} NOS
 Next up comes the workflow definition, this JSON object will specify the parameters needed to run an inference job on Nosana.
 
 These are the minimum required properties to run a hello world example on the Nosana Grid.
-Let's go through them one by one:
-
-- `ops`:
-  This is short for operations, as can be seen in this example it is an array.
-  A Nosana workflow definition can contain multiple operations.
-  It is possible to chain these operations and move assets between the operations, but is beyond the scope of this tutorial.
-- `op`:
-  The motif continues and this is short for operation, here we define the context of the operation.
-  As we can see here, this operation will run within a container.
-- `id`:
-  A simple custom identifier for what this operation is.
-- `args`:
-  Short for arguments, here we start specifying the commands images for the operation.
-
-  - `cmds`:
-    An array of the commands
-    - `cmd`:
-      The shell commands that will run in the container
-    - `image`:
-      The image that will be loaded as the running environment.
-
-For a full list of all of the properties for the Nosana Job definition please go to: [Writing a Job](../inference/writing_a_job.md).
+For a full list of all the properties for the Nosana Job definition please go to: [Job Definition Schema](../inference/job_reference.md).
 
 ```typescript
 const json_flow = {
- ops: [
-   {
-     op: 'container/run',
-     id: 'hello-world',
-     args: {
-       cmds: [
-         {
-           cmd: 'echo hello world',
-         },
-       ],
-       image: 'ubuntu',
-     },
-   },
- ],
+  ops: [
+    {
+      op: 'container/run',
+      id: 'hello-world',
+      args: {
+        cmds: [
+          {
+            cmd: 'echo hello world',
+          },
+        ],
+        image: 'ubuntu',
+      },
+    },
+  ],
 };
 ```
 
@@ -148,10 +131,10 @@ In this example we will be using IPFS to upload our data, this way we will be ab
 By using `nosana.ipfs.pin()` we can upload any data we want, in this it will be the Nosana JSON job definition we created above.
 After it has been successfully uploaded, the resulting IPFS hash is logged, and can be used to retrieve the workflow
 
- ```typescript
+```typescript
 const ipfsHash = await nosana.ipfs.pin(json_flow);
 console.log(`IPFS uploaded: ${nosana.ipfs.config.gateway}ipfsHash`);
- ```
+```
 
 ## Posting and Monitoring a Job
 
@@ -162,7 +145,7 @@ Posting the job means it will be posted to the Solana blockchain, and processed 
 When this happens, a Nosana Node that is waiting in the queue, monitoring the blockchain for new jobs, will claim it and run it.
 
 ```typescript
-const market = new PublicKey('97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf')
+const market = new PublicKey('97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf');
 
 // Post job with IPFS hash to market
 const response = await nosana.jobs.list(ipfsHash, market);
@@ -170,7 +153,7 @@ const response = await nosana.jobs.list(ipfsHash, market);
 console.log(`
 Posted to market: https://dashboard.nosana.com/markets/${market.toBase58()}
 Nosana Explorer: https://dashboard.nosana.com/jobs/${response.job}
-`)
+`);
 ```
 
 After the job has been posted, all we have to do is wait.
@@ -183,9 +166,9 @@ The job state are `QUEUED`, `RUNNING` or `COMPLETED`.
 ```typescript
 // Retrieve job from blockchain, loop until job is COMPLETED
 let job: Job = await nosana.jobs.get(response.job);
-while (!job || job.state !== "COMPLETED") {
+while (!job || job.state !== 'COMPLETED') {
   job = await nosana.jobs.get(response.job);
-  console.log(`Job state: ${job.state}`)
+  console.log(`Job state: ${job.state}`);
   await sleep(5);
 }
 ```
@@ -193,7 +176,7 @@ while (!job || job.state !== "COMPLETED") {
 ## Retrieving Job Result from IPFS
 
 Once the job is complete, the result (which was stored in IPFS) is retrieved using the `ipfs.retrieve()` method.
-The result is then logged, in this case the result is that `hello world` has been printed to stdout, and can be seen in the logs.
+The result is then logged, in this case the result is that `hello world` has been printed to `stdout`, and can be seen in the logs.
 
 ```typescript
 const result = await nosana.ipfs.retrieve(job.ipfsResult);
