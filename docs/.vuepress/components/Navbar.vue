@@ -89,7 +89,7 @@
             </div>
             <div class="navbar-item" @click="mobileMenu = false">
               <a target="_blank" href="https://dashboard.nosana.com/" class="button is-secondary is-size-6"
-                >Dashboard</a
+                >Deploy Now</a
               >
             </div>
           </div>
