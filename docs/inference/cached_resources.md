@@ -11,9 +11,6 @@ This helps us achieve a couple of things:
 2. Use one Docker image to run multiple models
 3. Share inference models across Docker images, reducing disk space requirements and increasing time to first token.
 
-Soon you will be able to use the resource property to pull inference models from IPFS and HuggingFace.
-Allowing you to pull, cache and auto-clean up for multiple resources.
-
 ## Cache availability
 
 The cache lifetime is currently set to 24 hours from the moment it is downloaded to a Nosana Node.
@@ -34,7 +31,7 @@ It's possible to retrieve a list of these required resources such as Docker imag
 By replacing `<Market-Address>` with the address of a market, you will be able to retrieve the cached resources for that specific Nosana Market.
 
 An example of the `97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf` market would be the following.
-https://dashboard.k8s.prd.nos.ci/api/markets/97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf/required-resources
+<https://dashboard.k8s.prd.nos.ci/api/markets/97G9NnvBDQ2WpKu6fasoMsAKmfj63C9rhysJnkeWodAf/required-resources>
 
 When we go to this url, we will see the following JSON.
 
