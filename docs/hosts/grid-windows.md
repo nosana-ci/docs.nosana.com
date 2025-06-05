@@ -201,7 +201,7 @@ To find your Node's Solana key, navigate to `~/.nosana/nosana_key.json`. It is *
 
 ### Run Podman API
 
-This command can be used to start Podman service on port 8080, so our GPU Hosts can reach it.
+This command can be used to start Podman service with a socket file, so our GPU Hosts can use that socket to reach Podman service.
 This is also already done by the `start.sh` script in the final step, so this step is optional:
 
 ```sh:no-line-numbers
