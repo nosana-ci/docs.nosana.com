@@ -35,7 +35,7 @@ These guides are instructing you on how to establish your GPU Host and partake i
 ## Launching the GPU Host with Custom Parameters
 
 You can manually launch the GPU Host to modify certain parameters:
-* Use the `--podman` parameter to direct to your Podman service if it's running elsewhere.
+* Use the `--podman` parameter to direct to your Podman service socket file if it's located elsewhere.
 * Use `--volume` to map your solana key to `/root/.nosana/nosana_key.json` within the Docker container if you wish to use your own key.
 
 ```sh:no-line-numbers
@@ -44,10 +44,11 @@ docker run \
       --network host  \
       --interactive -t \
       --volume ~/.config/solana/id.json:/root/.nosana/nosana_key.json \
+      --volume path-to-your-podman-socket:/root/.nosana/podman/podman.sock:ro \
       nosana/nosana-cli nosana node start \
          --network mainnet \
          --rpc your-rpc-here \
-         --podman http://$(ip addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'):8080
+         --podman /root/.nosana/podman/podman.sock
 ```
 
 ## FAQ

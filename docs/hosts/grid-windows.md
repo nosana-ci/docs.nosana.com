@@ -213,7 +213,7 @@ mkdir -p $HOME/.nosana/podman
 
 You can manually launch the GPU Hosts to modify certain parameters:
 
-- Use the `--podman` parameter to direct to your Podman service if it's running elsewhere.
+- Use the `--podman` parameter to direct to your Podman service socket if it's located elsewhere.
 - Use `--volume` to map your Solana key to `/root/.nosana/nosana_key.json` within the Docker container if you wish to use your own key.
 
 ```sh:no-line-numbers
@@ -222,9 +222,10 @@ docker run \
       --network host  \
       --interactive -t \
       --volume ~/.config/solana/id.json:/root/.nosana/nosana_key.json \
+      --volume ~/.nosana/podman:/root/.nosana/podman:ro \
       nosana/nosana-cli:latest \
          node join \
-         --podman http://$(ip addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'):8080
+         --podman /root/.nosana/podman/podman.sock
 ```
 
 ## Troubleshoot
