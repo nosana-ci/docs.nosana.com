@@ -205,13 +205,8 @@ This command can be used to start Podman service on port 8080, so our GPU Hosts 
 This is also already done by the `start.sh` script in the final step, so this step is optional:
 
 ```sh:no-line-numbers
-podman system service --time 0 tcp:0.0.0.0:8080&
-```
-
-To validate Podman's proper functioning, use:
-
-```sh:no-line-numbers
-curl http://localhost:8080/v4.5.0/libpod/info
+mkdir -p $HOME/.nosana/podman
+{ podman system service --time 0 unix://$HOME/.nosana/podman/podman.sock & } 2> podman.log
 ```
 
 ## Launching the GPU Hosts with Custom Parameters

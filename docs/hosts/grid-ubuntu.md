@@ -135,15 +135,17 @@ To find your Node's Solana key, navigate to `~/.nosana/nosana_key.json`. It is *
 If you're running Ubuntu natively, you can use Docker to initiate your Podman instance. The `start.sh` script accomplishes this in the final step, making this a non-mandatory step:
 
 ```sh:no-line-numbers
+    docker volume create podman-socket
     docker run -d \
-      --pull=always \
-      --gpus=all \
-      --name podman \
-      --device /dev/fuse \
-      --privileged \
-      -e ENABLE_GPU=true \
-      -p 8080:8080 \
-      nosana/podman podman system service --time 0 tcp:0.0.0.0:8080
+        --pull=always \
+        --gpus=all \
+        --name podman \
+        --device /dev/fuse \
+        --mount source=podman-cache,target=/var/lib/containers \
+        --volume podman-socket:/podman \
+        --privileged \
+        -e ENABLE_GPU=true \
+        nosana/podman:v1.1.0 unix:/podman/podman.sock
 ```
 
 To confirm GPU support within Podman containers, execute:
@@ -165,7 +167,7 @@ curl http://localhost:8080/v4.5.0/libpod/info
 ## Launching the GPU Host with Custom Parameters
 
 You can manually launch the GPU Host to modify certain parameters:
-* Use the `--podman` parameter to direct to your Podman service if it's running elsewhere.
+* Use the `--podman` parameter to direct to your Podman socket if it's located elsewhere.
 * Use `--volume` to map your solana key to `/root/.nosana/nosana_key.json` within the Docker container if you wish to use your own key.
 
 ```sh:no-line-numbers
@@ -174,8 +176,9 @@ docker run \
       --network host  \
       --interactive -t \
       --volume ~/.config/solana/id.json:/root/.nosana/nosana_key.json \
+      --volume podman-socket:/root/.nosana/podman:ro \
       nosana/nosana-cli:latest node start \
-         --podman http://localhost:8080
+         --podman /root/.nosana/podman/podman.sock
 ```
 
 ## Troubleshoot
