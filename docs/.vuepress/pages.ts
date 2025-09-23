@@ -24,6 +24,7 @@ export default [
       'endpoints',
       'writing_a_job',
       'job_reference',
+      'literals',
       'markets',
       'loading_resources',
       's3_resources',

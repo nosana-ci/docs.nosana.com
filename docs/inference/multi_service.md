@@ -5,6 +5,26 @@ This guide shows **how to run _two_ services—vLLM (model server) and Open‑We
 
 ---
 
+## Two Approaches: Multi-Service vs Multi-Operations
+
+Nosana offers two distinct ways to run multiple services:
+
+### 🐳 Multi-Service Container (This Guide)
+Bundle multiple services into a **single container image** using process managers or wrapper scripts. Best for:
+- Services that need to share resources (GPU, memory, files)
+- Minimizing network latency between services
+- Simpler deployment with fewer moving parts
+
+### 🔗 Multi-Operations (Parallel Execution)
+Run multiple **separate operations** that can execute in parallel with dependency control. Best for:
+- Independent services that can run on different nodes
+- Complex orchestration with health checks and restart policies  
+- Better fault isolation and scalability
+
+This guide focuses on **Multi-Service Containers**. For Multi-Operations, see the [Multi-Operations section](#multi-operations) below.
+
+---
+
 ## What Is a _Service_?
 
 A **service** is any long‑running process that listens on a network port and responds to requests:
@@ -19,7 +39,7 @@ See Docker’s [_Run multiple processes in a container_](https://docs.docker.com
 
 ---
 
-## vLLM & Open-WebUI example
+## Multi-Service Container: vLLM & Open-WebUI Example
 
 To showcase how to use the multiple services feature, we will be using [vLLM](https://docs.vllm.ai/en/latest/index.html) and [Open-WebUI](https://docs.openwebui.com/).
 
@@ -176,7 +196,210 @@ Nosana schedules the build on a GPU node, starts your container, and exposes the
 
 ---
 
+## Multi-Operations: Parallel Execution with Dependencies
+
+Instead of bundling services in one container, you can run **multiple separate operations** in parallel. This approach offers better isolation, scalability, and orchestration control.
+
+### How Multi-Operations Work
+
+Operations can run in parallel using **execution groups** and **dependencies**:
+
+```json
+"execution": {
+  "group": "string",
+  "depends_on": ["op-id-1", "op-id-2"]
+}
+```
+
+- **`group`**: Groups act as stages. The manager runs one stage at a time, but operations within a stage can run in parallel
+- **`depends_on`**: List of operation IDs this operation must wait for before starting
+
+### Example: vLLM + Open-WebUI as Separate Operations
+
+Here's how to run the same vLLM + Open-WebUI setup using separate operations:
+
+```json
+{
+  "version": "0.1",
+  "type": "container",
+  "meta": {
+    "trigger": "dashboard",
+    "system_requirements": {
+      "required_vram": 6
+    }
+  },
+  "ops": [
+    {
+      "type": "container/run",
+      "id": "vllm-server",
+      "args": {
+        "image": "vllm/vllm-openai:latest",
+        "cmd": [
+          "--model", "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+          "--served-model-name", "R1-Qwen-1.5B",
+          "--port", "9000"
+        ],
+        "gpu": true,
+        "expose": [
+          {
+            "port": 9000,
+            "health_checks": [
+              {
+                "type": "http",
+                "path": "/v1/models",
+                "method": "GET",
+                "expected_status": 200,
+                "continuous": true
+              }
+            ]
+          }
+        ]
+      },
+      "execution": {
+        "group": "inference"
+      }
+    },
+    {
+      "type": "container/run", 
+      "id": "open-webui",
+      "args": {
+        "image": "ghcr.io/open-webui/open-webui:main",
+        "env": {
+          "OPENAI_API_BASE_URL": "http://vllm-server:9000/v1"
+        },
+        "expose": [8080],
+        "depends": ["vllm-server"]
+      },
+      "execution": {
+        "group": "inference",
+        "depends_on": ["vllm-server"]
+      }
+    }
+  ]
+}
+```
+
+### Key Benefits of Multi-Operations
+
+1. **Independent Scaling**: Scale each service independently
+2. **Fault Isolation**: If one operation fails, others continue running
+3. **Health Checks**: Built-in health monitoring for each service
+4. **Restart Control**: Restart individual operations or entire groups
+5. **Resource Allocation**: Assign different resources to each operation
+
+### Operation States and Control
+
+Operations progress through states: `pending` → `running` → `completed`/`failed`
+
+You can control operations via the Node API:
+
+```bash
+# Check operation status
+GET https://{{node}}.node.k8s.prd.nos.ci/job/{{job}}/ops
+
+# Stop/restart individual operations
+POST https://{{node}}.node.k8s.prd.nos.ci/job/{{job}}/group/{{group}}/operation/{{opid}}/stop
+POST https://{{node}}.node.k8s.prd.nos.ci/job/{{job}}/group/{{group}}/operation/{{opid}}/restart
+
+# Stop/restart entire groups
+POST https://{{node}}.node.k8s.prd.nos.ci/job/{{job}}/group/{{group}}/stop
+POST https://{{node}}.node.k8s.prd.nos.ci/job/{{job}}/group/{{group}}/restart
+```
+
+### Advanced Example: Multi-Stage Pipeline
+
+```json
+{
+  "ops": [
+    {
+      "id": "database",
+      "type": "container/run",
+      "args": {
+        "image": "postgres:15",
+        "env": {"POSTGRES_DB": "app"},
+        "expose": [5432]
+      },
+      "execution": {
+        "group": "infrastructure"
+      }
+    },
+    {
+      "id": "redis", 
+      "type": "container/run",
+      "args": {
+        "image": "redis:7",
+        "expose": [6379]
+      },
+      "execution": {
+        "group": "infrastructure"
+      }
+    },
+    {
+      "id": "api-server",
+      "type": "container/run", 
+      "args": {
+        "image": "myapp/api:latest",
+        "expose": [3000],
+        "depends": ["database", "redis"]
+      },
+      "execution": {
+        "group": "application",
+        "depends_on": []
+      }
+    },
+    {
+      "id": "web-frontend",
+      "type": "container/run",
+      "args": {
+        "image": "myapp/frontend:latest", 
+        "expose": [80],
+        "depends": ["api-server"]
+      },
+      "execution": {
+        "group": "application", 
+        "depends_on": []
+      }
+    }
+  ]
+}
+```
+
+This creates two stages:
+1. **Infrastructure**: Database and Redis start in parallel
+2. **Application**: API server and frontend start after infrastructure is ready
+
+---
+
+## When to Choose Which Approach
+
+| Factor | Multi-Service Container | Multi-Operations |
+|--------|------------------------|------------------|
+| **Resource Sharing** | ✅ Shared GPU/memory | ❌ Separate resources |
+| **Network Latency** | ✅ Localhost communication | ⚠️ Container-to-container |
+| **Fault Isolation** | ❌ One failure stops all | ✅ Independent failures |
+| **Complexity** | ✅ Simple single image | ⚠️ More orchestration |
+| **Development** | ⚠️ Rebuild for any change | ✅ Update services independently |
+| **Monitoring** | ⚠️ Combined logs/metrics | ✅ Per-service observability |
+
+**Choose Multi-Service when**:
+- Services are tightly coupled (e.g., model + UI)
+- You need maximum performance (shared GPU/memory)
+- Simple deployment is priority
+
+**Choose Multi-Operations when**:
+- Services can run independently  
+- You need complex orchestration
+- Better fault tolerance needed
+
+---
+
 ### Next Steps
 
+**For Multi-Service Containers**:
 - Swap in your own model weights: change the `vllm serve …` line.
 - Add more services—update `start.sh` and `EXPOSE` as needed.
+
+**For Multi-Operations**:
+- Experiment with different execution groups and dependencies
+- Add health checks to ensure proper startup ordering
+- Use the Node API to monitor and control your operations
