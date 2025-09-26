@@ -32,6 +32,7 @@ export default [
       'confidential',
       'multi_service',
       'healthchecks',
+      'api_http',
       {
         text: 'Examples',
         prefix: '/inference/examples/',
@@ -56,7 +57,7 @@ export default [
     icon: 'terminal',
     prefix: '/sdk/',
     collapsible: true,
-    children: ['sdk_start', 'hello_world', 'tiny_llama', 'jupyter'],
+    children: ['sdk_start', 'hello_world', 'tiny_llama', 'jupyter', 'api_jobs'],
   },
 
   {
