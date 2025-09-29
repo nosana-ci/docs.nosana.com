@@ -1,11 +1,11 @@
 # Post Jobs with Credits
 
-Use your API key to create, extend, and stop jobs with Nosana credits. The SDK provides wrappers under `Client.apiJobs`.
+Use your API key to create, extend, and stop jobs with Nosana credits. The SDK provides wrappers under `client.api`:
 
-- `balance()` — check your available credits
-- `list()` — create a job using credits
-- `extend()` — add time to a running job
-- `stop()` — stop a running job
+- `client.api.credits.balance()` — check your available credits
+- `client.api.jobs.list()` — create a job using credits
+- `client.api.jobs.extend()` — extend the maximum timeout of a job
+- `client.api.jobs.stop()` — stop a job
 
 [API reference](https://dashboard.k8s.prd.nos.ci/api/swagger#tag/credits).
 
@@ -47,7 +47,7 @@ const client = new Client('mainnet', undefined, {
 ## Check credit balance
 
 ```ts
-const balance = await client.apiJobs!.balance();
+const balance = await client.api.credits.balance();
 const available = balance.assignedCredits - balance.reservedCredits - balance.settledCredits;
 console.log(`Balance available: $${available.toFixed(2)}`);
 ```
@@ -80,7 +80,7 @@ const ipfsHash = await client.ipfs.pin(jobDefinition);
 // Markets can be found on the dashboard explorer
 const market = '7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq';
 
-const listResp = await client.apiJobs!.list({
+const listResp = await client.api.jobs.list({
   ipfsHash,
   market,
   timeout: 1800, // max. 30 minutes
@@ -92,7 +92,7 @@ console.log('Created job:', listResp);
 ## Extend a running job
 
 ```ts
-const extendResp = await client.apiJobs!.extend({
+const extendResp = await client.api.jobs.extend({
   jobAddress: listResp.jobAddress,
   extensionSeconds: 1800, // +30 minutes
 });
@@ -103,7 +103,7 @@ console.log('Extended job:', extendResp);
 ## Stop a job
 
 ```ts
-const stopResp = await client.apiJobs!.stop({ jobAddress: listResp.jobAddress });
+const stopResp = await client.api.jobs.stop({ jobAddress: listResp.jobAddress });
 console.log('Stopped job:', stopResp);
 ```
 
@@ -120,7 +120,7 @@ import { Client, sleep } from '@nosana/sdk';
       apiKey: API_KEY,
     });
 
-    const balance = await client.apiJobs!.balance();
+    const balance = await client.api.credits.balance();
     const available = balance.assignedCredits - balance.reservedCredits - balance.settledCredits;
     console.log(`Balance available: $${available.toFixed(2)}`);
 
@@ -147,7 +147,7 @@ import { Client, sleep } from '@nosana/sdk';
     // Markets can be found on the dashboard explorer
     const market = '7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq';
 
-    const listResp = await client.apiJobs!.list({
+    const listResp = await client.api.jobs.list({
       ipfsHash,
       market
     });
@@ -157,14 +157,14 @@ import { Client, sleep } from '@nosana/sdk';
     await sleep(10);
 
     // Extend the job
-    const extendResp = await client.apiJobs!.extend({
+    const extendResp = await client.api.jobs.extend({
       jobAddress: listResp.jobAddress,
       extensionSeconds: 1800, // +30 minutes
     });
     console.log('Extended job:', extendResp);
 
     // Stop the job
-    const stopResp = await client.apiJobs!.stop({ jobAddress: listResp.jobAddress });
+    const stopResp = await client.api.jobs.stop({ jobAddress: listResp.jobAddress });
     console.log('Stopped job:', stopResp);
   } catch (e) {
     console.error('Example failed:', e);
@@ -172,4 +172,3 @@ import { Client, sleep } from '@nosana/sdk';
   }
 })();
 ```
-
