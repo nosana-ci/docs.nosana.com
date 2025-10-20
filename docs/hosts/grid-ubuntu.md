@@ -4,7 +4,7 @@ Greetings! This is your comprehensive guide to setting up the GPU Host on an Ubu
 
 1. [Install Docker](#docker)
 2. [Install NVIDIA drivers and container toolkit](#nvidia)
-3. [Run the GPU Host and register for Nosana Grid](#nosana-join-grid-script)
+3. [Run the GPU Host and register for Nosana Grid](#join-the-grid)
 
 Make sure you have Ubuntu version **20.04** or higher. You can check your Ubuntu version with:
 
