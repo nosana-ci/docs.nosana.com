@@ -34,6 +34,9 @@ To participate as a GPU Host, ensure your setup meets the following criteria:
 
 | Brand  | Model         |
 | ------ | ------------- |
+| NVIDIA | RTX 5090      |
+| NVIDIA | RTX 5080      |
+| NVIDIA | RTX 5070      |
 | NVIDIA | RTX 4090      |
 | NVIDIA | RTX 4080      |
 | NVIDIA | RTX 4070Ti    |
