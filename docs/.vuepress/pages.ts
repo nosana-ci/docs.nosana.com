@@ -11,7 +11,7 @@ export default [
     icon: 'server',
     prefix: '/hosts/',
     collapsible: true,
-    children: ['grid', 'grid-windows', 'grid-ubuntu', 'grid-run', 'troubleshoot'],
+    children: ['grid', 'grid-ubuntu', 'grid-run', 'troubleshoot'],
   },
   {
     text: 'Run Inference',
