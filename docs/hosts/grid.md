@@ -19,6 +19,10 @@ For clarity we would also like to inform you that Nosana supports
 
 ## Hardware Requirements
 
+::: warning Platform Support
+As of this release, Windows (including WSL2) is being deprecated as a supported platform for Nosana GPU Hosts. Going forward, only native Linux installations are officially supported. We recommend using Ubuntu 20.04 or newer for the best experience and compatibility with the Nosana Node software.
+:::
+
 To participate as a GPU Host, ensure your setup meets the following criteria:
 
 - **RAM**: 12GB+
