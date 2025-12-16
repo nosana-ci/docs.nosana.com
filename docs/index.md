@@ -55,5 +55,5 @@ Discover the expansive realm of Nosana through our documentation. Dive deep into
 Whether you are a beginner looking to get started or an experienced user seeking advanced techniques, our resources cater to all levels of expertise. Engage with our community through forums and discussions, share your experiences, and learn from others. With regular updates and new content added frequently, you’ll always have access to the latest information and best practices in the Nosana ecosystem. Join us in unlocking the full potential of decentralized cloud computing!
 
 ::: info
-Are you looking for how to run inference the API, SDK or Dashboard? The easiest place to start is [learn.nosana.com](https://learn.nosana.com).
+Are you looking for how to run inference using the API, SDK or Dashboard? The easiest place to start is [learn.nosana.com](https://learn.nosana.com).
 :::
