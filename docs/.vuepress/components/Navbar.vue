@@ -68,6 +68,16 @@
                 </a>
               </div>
             </div>
+            <div class="navbar-item" @click="mobileMenu = false">
+              <a
+                class="navbar-link is-arrowless"
+                href="https://grants.nosana.com/"
+                exact-active-class="is-active"
+                target="_blank"
+              >
+                <div>Grants Program</div>
+              </a>
+            </div>
             <div class="navbar-item has-dropdown is-hoverable" @click="mobileMenu = false">
               <a class="navbar-link is-arrowless">
                 <div>Resources</div>
@@ -76,8 +86,11 @@
                 <a href="https://docs.nosana.com" target="_blank" class="navbar-item is-active">
                   <span>Docs</span>
                 </a>
-                <a class="navbar-item" href="https://nosana.com/">
+                <a class="navbar-item" href="https://nosana.com/blog">
                   <span>Blog</span>
+                </a>
+                <a class="navbar-item" href="https://nosana.com/blog?tag=events">
+                  <span>Events</span>
                 </a>
                 <a class="navbar-item" href="https://nosana.com/support">
                   <span>Support</span>

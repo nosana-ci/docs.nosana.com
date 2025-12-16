@@ -1,6 +1,10 @@
 # Getting Started
 
-The Nosana Network is a platform for running [AI inference workloads](https://www.oracle.com/artificial-intelligence/ai-inference/#:~:text=AI%20inference%20is%20when%20an,way%20that%20mimics%20human%20abilities). Currently, the best way to run inference on the Nosana network is through our CLI. We'll start with a simple hello world program and afterwards build on these concepts to create a fully working endpoint.
+::: info
+Are you looking for how to run inference the API, SDK or Dashboard? The easiest place to start is [learn.nosana.com](https://learn.nosana.com).
+:::
+
+The Nosana Network is a platform for running [AI inference workloads](https://www.oracle.com/artificial-intelligence/ai-inference/#:~:text=AI%20inference%20is%20when%20an,way%20that%20mimics%20human%20abilities). We'll start with a simple hello world program and afterwards build on these concepts to create a fully working endpoint.
 
 ## Installing The Nosana CLI
 

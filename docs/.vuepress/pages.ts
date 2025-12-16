@@ -14,25 +14,13 @@ export default [
     children: ['grid', 'grid-ubuntu', 'grid-run', 'troubleshoot'],
   },
   {
-    text: 'Run Inference',
+    text: 'Run Inference (CLI)',
     icon: 'rocket',
     prefix: '/inference/',
     collapsible: true,
     children: [
       'quick_start',
-      'job_schema',
-      'endpoints',
       'writing_a_job',
-      'job_reference',
-      'literals',
-      'markets',
-      'loading_resources',
-      's3_resources',
-      'cached_resources',
-      'confidential',
-      'multi_service',
-      'healthchecks',
-      'deployments_api',
       {
         text: 'Examples',
         prefix: '/inference/examples/',
@@ -52,13 +40,6 @@ export default [
       },
     ],
   },
-  {
-    text: 'SDK',
-    icon: 'terminal',
-    prefix: '/sdk/',
-    collapsible: true,
-    children: ['sdk_start', 'hello_world', 'tiny_llama', 'jupyter', 'deployments'],
-  },
 
   {
     text: 'Wallet',
@@ -66,20 +47,6 @@ export default [
     prefix: '/wallet/',
     collapsible: true,
     children: ['token', 'key'],
-  },
-  {
-    text: 'Tutorial',
-    icon: 'book',
-    prefix: '/tutorials/',
-    collapsible: true,
-    children: [
-      {
-        text: 'LLM',
-        prefix: '/tutorials/llm/',
-        collapsible: true,
-        children: ['deepseek.md'],
-      },
-    ],
   },
   {
     text: 'Protocols',

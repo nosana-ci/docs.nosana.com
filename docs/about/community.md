@@ -3,6 +3,3 @@ Welcome to the Nosana Community area! Here, you can find detailed information ab
 
 ## Community Calls
 - [Community Calls](/about/community-calls)
-
-## Pepe Discord Emoji Contest
-- [Nosana Pepe Emoji Contest](/about/pepe_contest)
