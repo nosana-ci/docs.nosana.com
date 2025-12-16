@@ -1,27 +1,26 @@
+---
+title: Introduction
+---
+
 # Introduction
 
-Welcome to the Nosana Network! Let us give you an introduction to Nosana and her vision
+Welcome to the Nosana Network!
 
 ## What is Nosana?
 
-**About Nosana**
+Nosana is a company founded by [Jesse Eisses](https://www.linkedin.com/in/jesse-eisses-9760ab48) and [Sjoerd Dijkstra](https://www.linkedin.com/in/sjoerd-dijkstra/) in 2021. They imagined a secure, decentralised, and distributed compute network where anyone can contribute their computing hardware, and be automatically, and fairly, paid to run software for others. To that end, Nosana is today at the intersection of cutting-edge technologies such as: a fully decentralized and transparent marketplace of compute resources built on blockchain smart-contracts, a highly distributed network of compute resources built on open-source software, and a tight integration with the underlying GPU hardware to support even the most demanding AI workloads.      
 
-Nosana is a GPU marketplace built to make AI compute accessible and affordable for businesses and developers. Focused on AI inference, Nosana connects Hosts—data centers and hardware owners—with Clients who need scalable and cost-effective GPU compute for AI Inference workloads. Nosana is addressing the shortage of GPUs in the market, making it easier for companies to get access to the necessary hardware. They are also taking advantage of underutilized hardware, such as gaming PCs, miners, and MacBooks, and offering competitive prices for building and running AI-solutions.
+Nosana builds on top of the Solana blockchain and has developed their own Nosana token, that serves as the currency within the Nosana Network. This network connects hardware hosts (be it computers in data centers or privately owned) to people in need of reliable compute resources. Given the sheer amount of high-quality GPUs available on the Nosana Network, and despite this network being workload agnostic, running AI inferences is easier and cheaper than ever.
 
-Nosana provides a distributed GPU grid that allows anyone to rent compute power without the usual overhead, excessive fees of lock-in. By turning idle GPUs into valuable resources, Nosana Network helps reduce e-waste and lower operational costs while driving innovation. Learn more at [Nosana.com](https://nosana.com)
+## What does Nosana offer?
 
-## What Nosana Offers
+On top of the decentralized and highly-available network, Nosana also offers software and services that make it easier to both participate in the network as a host that rents out their compute resources, and build innovative AI powered software solutions. Nosana created, and continuously maintains, an open and decentralized protocol to govern and match supply with demand. In addition to that, Nosana open sources the reference implementation of the software that hosts run to integrate in the network, and the APIs that support the users of the network in executing their workloads. Users can consume the Nosana APIs directly, using their favourite technologies, or through the Nosana Software Development Kits (SDKs) for a seamless integration. Because it's all open-source, anyone can contribute new SDKs for the Nosana APIs. 
 
-Nosana is a platform that provides AI users with affordable GPUs and GPU owners with an income. GPU owners can rent their GPUs to AI users, who in turn can access powerful hardware and train and use their models faster. Nosana also provides users with a powerful suite of tools to help them get the most out of their GPU resources. With easy-to-use APIs and flexible pricing options, Nosana makes it easier than ever to access the power of AI.
+Nosana supports both batch and online workloads. Workloads can be started on-demand or scheduled to run at specific times, and even at specific frequencies. For batch processing workloads, Nosana provides integrations for users to provide input and collect output. While for online workloads, Nosana provides service endpoints (that can be APIs, or websites, or whatever other form of service) that are publicly accessible. Users can easily build security controls and high-availability into their services to whatever degree needed.
 
-## Ultimate Vision
+## Nosana's Vision
 
-We aim to bring the disruptive power of blockchain technology to the field of AI. As we move toward a future that is more decentralized, our **ultimate vision** is that projects will not rely on centralized mega-corporations for their daily operations. We believe that communities can perform essential computations in a decentralized manner by utilizing the Nosana Network. With Nosana, a robust community has the ability to keep any project running forever.
-
-
-## Founders
-
-Nosana was founded by [Jesse Eisses](https://www.linkedin.com/in/jesse-eisses-9760ab48) and [Sjoerd Dijkstra](https://www.linkedin.com/in/sjoerd-dijkstra/), driven by the goal of making GPU compute accessible to everyone. They believe GPUs should be a shared resource, helping businesses and individuals harness the power of AI without high costs or barriers.
+Nosana aims at truly and effectively democratizing access to compute resources (especially GPUs) currently in the hands of massive (big-tech) companies, by leveraging the transparency and decentralization inherent to the blockchain technology. Empowering communities is at the heart of Nosana's vision of the future, but also increasing the utilization of the existing hardware to reduce waste.
 
 ## Disclaimer
 

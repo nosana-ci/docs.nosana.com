@@ -4,7 +4,7 @@ Nosana is powered by the [Solana](https://solana.com/) blockchain. All deploymen
 
 ## CLI
 
-When using the [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli) tool, ensure sufficient `NOS/SOL` tokens in your wallet, you will need a minimum of `0.05 SOL`, and a minimum amount of NOS to pay for the Nosana deployment. On the [NVIDIA-3090](https://dashboard.nosana.com/markets/CA5pMpqkYFKtme7K31pNB1s62X2SdhEv1nN9RdxKCpuQ) Market it costs `$0.192/hour`. Make sure you have that amount in NOS for the time that you want to reserve.
+When using the [`@nosana/cli`](https://github.com/nosana-ci/nosana-cli) tool, ensure sufficient `NOS/SOL` tokens in your wallet, you will need a minimum of `0.05 SOL`, and a minimum amount of NOS to pay for the Nosana deployment.
 
 Follow this link to learn where to purchase NOS Tokens: [NOS token page](https://nosana.com/token/). Of course [NOS](https://nosana.com/token/) can be purchased via swaps from any Solana wallet.
 
