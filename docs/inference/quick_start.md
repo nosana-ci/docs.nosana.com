@@ -69,9 +69,9 @@ Once you have NOS/SOL, send some to the address logged from the `nosana address`
 
 Once your wallet is loaded with some SOL and NOS, you can post jobs to the Nosana Network.
 
-First, we need to determine which market to post our job in. Navigate to [Nosana Explorer Markets](https://dashboard.nosana.com/markets) to see a list of available markets. Each market has certain parameters, such as NOS per second, type of GPU used, available nodes, etc.
+First, we need to determine which market to post our job in. Navigate to [Nosana Explore Markets](https://explore.nosana.com/markets) to see a list of available markets. Each market has certain parameters, such as NOS per second, type of GPU used, available nodes, etc.
 
-For this first test, we will use the cheapest option, which at the time of writing is [Market 3060](https://dashboard.nosana.com/markets/7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq). Copy the market address, `7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq`, and use it in the `nosana job post` command.
+For this first test, we will use the cheapest option, which at the time of writing is [Market 3060](https://explore.nosana.com/markets/7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq). Copy the market address, `7AtiXMSH6R1jjBxrcYjehCkkSF7zvYWte63gwEDBcGHq`, and use it in the `nosana job post` command.
 
 The following parameters will be added to the command:
 
@@ -124,7 +124,7 @@ Exited with status success with code 0
 ## Get Job from Job ID
 
 Retrieving the results from the CLI is also possible. Use the job ID to retrieve the data, which can be found in the job URL posted above:
-<https://dashboard.nosana.com/jobs/FQTP2F5hNP2rNGUtQm4Annrx462PgxPcSA6ND6ToPTxH>.
+<https://explore.nosana.com/jobs/FQTP2F5hNP2rNGUtQm4Annrx462PgxPcSA6ND6ToPTxH>.
 
 Run the following command to get the result of the job:
 
