@@ -140,44 +140,6 @@ export default () => ({
           apiKey: '3419239266c440c627d6bdd2f1cb82ea',
           indexName: 'nosana',
         },
-
-        pwa: {
-          favicon: '/favicon.ico',
-          cacheHTML: true,
-          cachePic: true,
-          appendBase: true,
-          apple: {
-            icon: '/assets/icon/apple-touch-icon.png',
-            statusBarColor: 'black',
-          },
-          manifest: {
-            icons: [
-              {
-                src: '/assets/icon/chrome-512x512.png',
-                sizes: '512x512',
-                purpose: 'maskable',
-                type: 'image/png',
-              },
-              {
-                src: '/assets/icon/chrome-192x192.png',
-                sizes: '192x192',
-                purpose: 'maskable',
-                type: 'image/png',
-              },
-              {
-                src: '/assets/icon/chrome-512x512.png',
-                sizes: '512x512',
-                type: 'image/png',
-              },
-              {
-                src: '/assets/icon/chrome-192x192.png',
-                sizes: '192x192',
-                type: 'image/png',
-              },
-            ],
-            shortcuts: [],
-          },
-        },
       },
     },
     { custom: true },
